@@ -82,6 +82,23 @@
                                 </button>
                             </div>
                         </div>
+						
+						<div class="form-group row">
+                            <label for="web" class="col-md-4 col-form-label text-md-right">Site Web (URL)</label>
+                            <div class="col-md-6">
+                                <input id="web" type="text" class="form-control @error('web') is-invalid @enderror" name="web" value="{{ old('web') }}" required autocomplete="web" autofocus>
+
+                                @error('web')
+                                <span class="invalid-feedback" role="alert">
+
+                                            <strong>{{ $message }}</strong>
+
+                                        </span>
+                                @enderror
+                            </div>
+                        </div>
+						
+						
                     </form>
                 </div>
             </div>

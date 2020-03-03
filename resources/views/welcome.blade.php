@@ -40,9 +40,7 @@
             html, body {
 
             }
-            .full-height {
-                height: 100vh;
-            }
+
             .flex-center {
                 align-items: center;
                 display: flex;
@@ -77,7 +75,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+
             <div class="wrapper">
 
 
@@ -86,19 +84,84 @@
                 </div>
 
 
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
+                <!--=================================
+                header -->
 
-            <!--=================================
-    page-title-->
+                <header id="header" class="header light topbar-dark">
+
+                    <!--=================================
+                     mega menu -->
+
+                   <!-- <div class="topbar">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 xs-mb-10">
+                                    <div class="topbar-call text-center text-md-left">
+                                        <ul>
+                                            <li><i class="fa fa-envelope-o theme-color"></i> gethelp@webster.com</li>
+                                            <li><i class="fa fa-phone"></i> <a href="tel:+7042791249"> <span>+(704) 279-1249 </span> </a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="topbar-social text-center text-md-right">
+                                        <ul>
+                                            <li><a href="#"><span class="ti-facebook"></span></a></li>
+                                            <li><a href="#"><span class="ti-instagram"></span></a></li>
+                                            <li><a href="#"><span class="ti-google"></span></a></li>
+                                            <li><a href="#"><span class="ti-twitter"></span></a></li>
+                                            <li><a href="#"><span class="ti-linkedin"></span></a></li>
+                                            <li><a href="#"><span class="ti-dribbble"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+-->
+
+                    <div class="menu">
+                        <!-- menu start -->
+                        <nav id="menu" class="mega-menu">
+                            <!-- menu list items container -->
+                            <section class="menu-list-items">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <!-- menu logo -->
+                                            <ul class="menu-logo">
+                                                <li>
+                                                    <a href=""><img src="img/delisoft.png" alt="logo"> </a>
+                                                </li>
+                                            </ul>
+                                            <!-- menu links -->
+                                            <div class="menu-bar">
+
+                                                @if (Route::has('login'))
+                                                    <div class="top-right links">
+                                                        @if (Auth::check())
+                                                            <a href="{{ url('/home') }}">Home</a>
+                                                        @else
+                                                            <a href="{{ url('/login') }}">Login</a>
+                                                            <a href="{{ url('/register') }}">Register</a>
+                                                        @endif
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </nav>
+                        <!-- menu end -->
+                    </div>
+                </header>
+
+                <!--=================================
+                 header -->
+
+             <!--=================================
+                 page-title-->
 
                 <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/06.jpg);">
                     <div class="container">
@@ -123,7 +186,7 @@
                 <!--=================================
                 team -->
 
-                <section class="marketing-team white-bg page-section-ptb">
+                 <section class="marketing-team white-bg page-section-ptb">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 mb-30">
@@ -346,6 +409,22 @@
 
 
             </div>
-        </div>
+            <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+
+            <!--=================================
+             jquery -->
+
+            <!-- jquery -->
+            <script src="../../js/jquery-3.3.1.min.js"></script>
+
+            <!-- plugins-jquery -->
+            <script src="../../js/plugins-jquery.js"></script>
+
+            <!-- plugin_path -->
+            <script>var plugin_path = '../../js/';</script>
+
+            <!-- custom -->
+            <script src="../../js/custom.js"></script>
+
     </body>
 </html>
