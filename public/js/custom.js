@@ -85,7 +85,7 @@ var $window = $(window),
 *************************/  
   POTENZA.preloader = function () {
        $("#load").fadeOut();
-       $('#pre-loader').delay(0).fadeOut('slow');
+       $('#pre-loader').delay(0).fadeOut('fast');
    };
  
 /*************************

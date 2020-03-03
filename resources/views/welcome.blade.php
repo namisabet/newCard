@@ -36,11 +36,14 @@
 
         <!-- Style customizer -->
         <link rel="stylesheet" type="text/css" href="css/skins/skin-red.css" data-style="styles"/>
+
         <style>
             html, body {
 
             }
-
+            #pre-loader {
+                background-color: rgba(0, 0, 0, 0.60);
+            }
             .flex-center {
                 align-items: center;
                 display: flex;
@@ -73,16 +76,15 @@
                 margin-bottom: 30px;
             }
         </style>
+
     </head>
     <body>
 
             <div class="wrapper">
 
-
                 <div id="pre-loader">
-                    <img src="img/pre-loader/loader-06.svg" alt="">
+                    <img src="img/pre-loader/loader-04.svg" alt="">
                 </div>
-
 
                 <!--=================================
                 header -->
@@ -160,21 +162,18 @@
                 <!--=================================
                  header -->
 
-             <!--=================================
+                <!--=================================
                  page-title-->
 
-                <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/06.jpg);">
+                <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/test.jpeg);">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="page-title-name text-left">
-                                    <h1>Our consultants</h1>
+                                    <h1>[Titre du Site Web]</h1>
                                     <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
                                 </div>
-                                <ul class="page-breadcrumb text-left">
-                                    <li><a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                                    <li><span>Our consultants</span> </li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -196,13 +195,13 @@
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html"> Martin Smith</a></h5>
-                                            <span>Expert in London</span>
+                                            <h5><a href="team-single.html"> Company Logo A</a></h5>
+                                            <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
-                                            <span class="call"> +(704) 279-1249</span>
-                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p>Contact me if are interested in growing your business by applying the right marketing mix</p>
+                                            <span class="call"> City </span>
+                                            <span class="email">Email?</span>
+                                            <p>Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
@@ -405,9 +404,6 @@
                     baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
                 </script>
 
-
-
-
             </div>
             <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 
@@ -415,16 +411,16 @@
              jquery -->
 
             <!-- jquery -->
-            <script src="../../js/jquery-3.3.1.min.js"></script>
+            <script src="js/jquery-3.3.1.min.js"></script>
 
             <!-- plugins-jquery -->
-            <script src="../../js/plugins-jquery.js"></script>
+            <script src="js/plugins-jquery.js"></script>
 
             <!-- plugin_path -->
-            <script>var plugin_path = '../../js/';</script>
+            <script>var plugin_path = 'js/';</script>
 
             <!-- custom -->
-            <script src="../../js/custom.js"></script>
+            <script src="js/custom.js"></script>
 
     </body>
 </html>
