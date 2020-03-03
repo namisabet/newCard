@@ -5,50 +5,63 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Trouvez une agence Web pour votre prochain projet</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+        <link rel="stylesheet" href="asset/cards-gallery.css">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="template/images/favicon.ico" />
 
-        <!-- Styles -->
+        <!-- font -->
+        <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900|Nunito:200,300,400,400i,600,600i,700,700i,800,800i,900">
+
+        <!-- Plugins -->
+        <link rel="stylesheet" type="text/css" href="css/plugins-css.css" />
+
+        <!-- Typography -->
+        <link rel="stylesheet" type="text/css" href="css/typography.css" />
+
+        <!-- Shortcodes -->
+        <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css" />
+
+        <!-- Style -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+        <!-- marketing -->
+        <link rel="stylesheet" type="text/css" href="css/marketing.css" />
+
+        <!-- Responsive -->
+        <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+        <!-- Style customizer -->
+        <link rel="stylesheet" type="text/css" href="css/skins/skin-red.css" data-style="styles"/>
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
 
+            }
             .full-height {
                 height: 100vh;
             }
-
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
-
             .position-ref {
                 position: relative;
             }
-
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
             }
-
             .content {
                 text-align: center;
             }
-
             .title {
                 font-size: 84px;
             }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -58,7 +71,6 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
@@ -66,6 +78,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            <div class="wrapper">
+
+
+                <div id="pre-loader">
+                    <img src="img/pre-loader/loader-06.svg" alt="">
+                </div>
+
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
@@ -77,18 +97,254 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+            <!--=================================
+    page-title-->
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/06.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="page-title-name text-left">
+                                    <h1>Our consultants</h1>
+                                    <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
+                                </div>
+                                <ul class="page-breadcrumb text-left">
+                                    <li><a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
+                                    <li><span>Our consultants</span> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--=================================
+                page-title -->
+
+                <!--=================================
+                team -->
+
+                <section class="marketing-team white-bg page-section-ptb">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 mb-30">
+                                <div class="team team-list">
+                                    <div class="team-photo">
+                                        <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                    </div>
+                                    <div class="team-description">
+                                        <div class="team-info">
+                                            <h5><a href="team-single.html"> Martin Smith</a></h5>
+                                            <span>Expert in London</span>
+                                        </div>
+                                        <div class="team-contact">
+                                            <span class="call"> +(704) 279-1249</span>
+                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
+                                            <p>Contact me if are interested in growing your business by applying the right marketing mix</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 mb-30">
+                                <div class="team team-list">
+                                    <div class="team-photo">
+                                        <img class="img-fluid mx-auto" src="template/images/team/02.jpg" alt="">
+                                    </div>
+                                    <div class="team-description">
+                                        <div class="team-info">
+                                            <h5><a href="team-single.html"> Paul Flavius</a></h5>
+                                            <span>Expert in Paris</span>
+                                        </div>
+                                        <div class="team-contact">
+                                            <span class="call"> +(704) 279-1249</span>
+                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
+                                            <p>Contact me if have a particular business project or problem that you’d like to discuss</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 mb-30">
+                                <div class="team team-list">
+                                    <div class="team-photo">
+                                        <img class="img-fluid mx-auto" src="template/images/team/03.jpg" alt="">
+                                    </div>
+                                    <div class="team-description">
+                                        <div class="team-info">
+                                            <h5><a href="team-single.html"> Anne Smith</a></h5>
+                                            <span>Expert in Moscow</span>
+                                        </div>
+                                        <div class="team-contact">
+                                            <span class="call"> +(704) 279-1249</span>
+                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
+                                            <p>Contact me if are looking at a launching a new product or business</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 mb-30">
+                                <div class="team team-list">
+                                    <div class="team-photo">
+                                        <img class="img-fluid mx-auto" src="template/images/team/04.jpg" alt="">
+                                    </div>
+                                    <div class="team-description">
+                                        <div class="team-info">
+                                            <h5><a href="team-single.html">  Sara Lisbon</a></h5>
+                                            <span>Expert in UK</span>
+                                        </div>
+                                        <div class="team-contact">
+                                            <span class="call"> +(704) 279-1249</span>
+                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
+                                            <p>Contact me if are interested in growing your business by applying the right marketing mix</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 sm-mb-30">
+                                <div class="team team-list">
+                                    <div class="team-photo">
+                                        <img class="img-fluid mx-auto" src="template/images/team/02.jpg" alt="">
+                                    </div>
+                                    <div class="team-description">
+                                        <div class="team-info">
+                                            <h5><a href="team-single.html"> Paul Flavius</a></h5>
+                                            <span>Expert in Mumbai</span>
+                                        </div>
+                                        <div class="team-contact">
+                                            <span class="call"> +(704) 279-1249</span>
+                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
+                                            <p>Contact me if have a particular business project or problem that you’d like to discuss</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 sm-mb-30">
+                                <div class="team team-list">
+                                    <div class="team-photo">
+                                        <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                    </div>
+                                    <div class="team-description">
+                                        <div class="team-info">
+                                            <h5><a href="team-single.html"> MARTIN SMITH</a></h5>
+                                            <span>Expert in New york</span>
+                                        </div>
+                                        <div class="team-contact">
+                                            <span class="call"> +(704) 279-1249</span>
+                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
+                                            <p>Contact me if are looking at a launching a new product or business</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="mt-50">
+                                    <p>Join our team! Work wherever it works for you.</p>
+                                    <a class="button" href="careers.html">Apply for right position</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!--=================================
+                 team -->
+
+                <!--=================================
+                footer -->
+
+                <footer class="footer page-section-pt black-bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-6 sm-mb-30">
+                                <div class="footer-useful-link footer-hedding">
+                                    <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Service</a></li>
+                                        <li><a href="#">Team</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6 sm-mb-30">
+                                <div class="footer-useful-link footer-hedding">
+                                    <h6 class="text-white mb-30 mt-10 text-uppercase">Useful Link</h6>
+                                    <ul>
+                                        <li><a href="#">Create Account</a></li>
+                                        <li><a href="#">Company Philosophy</a></li>
+                                        <li><a href="#">Corporate Culture</a></li>
+                                        <li><a href="#">Portfolio</a></li>
+                                        <li><a href="#">Client Management</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 xs-mb-30">
+                                <h6 class="text-white mb-30 mt-10 text-uppercase">Contact Us</h6>
+                                <ul class="addresss-info">
+                                    <li><i class="fa fa-map-marker"></i> <p>Address: 17504 Carlton Cuevas Rd, Gulfport, MS, 39503</p> </li>
+                                    <li><i class="fa fa-phone"></i> <a href="tel:7042791249"> <span>+(704) 279-1249 </span> </a> </li>
+                                    <li><i class="fa fa-envelope-o"></i>Email: letstalk@webster.com</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-sm-6">
+                                <h6 class="text-white mb-30 mt-10 text-uppercase">Subscribe to Our Newsletter</h6>
+                                <p class="mb-30">Sign Up to our Newsletter to get the latest news and offers.</p>
+                                <div class="footer-Newsletter">
+                                    <div id="mc_embed_signup_scroll">
+                                        <form action="php/mailchimp-action.php" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+                                            <div id="msg"> </div>
+                                            <div id="mc_embed_signup_scroll_2">
+                                                <input id="mce-EMAIL" class="form-control" type="text" placeholder="Email address" name="email1" value="">
+                                            </div>
+                                            <div id="mce-responses" class="clear">
+                                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                                <div class="response" id="mce-success-response" style="display:none"></div>
+                                            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                                <input type="text" name="b_b7ef45306f8b17781aa5ae58a_6b09f39a55" tabindex="-1" value="">
+                                            </div>
+                                            <div class="clear">
+                                                <button type="submit" name="submitbtn" id="mc-embedded-subscribe" class="button button-border mt-20 form-button">  Get notified </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-widget mt-20">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> Webster </a> All Rights Reserved </p>
+                                </div>
+                                <div class="col-lg-6 col-md-6 text-left text-md-right">
+                                    <div class="social-icons color-hover mt-10">
+                                        <ul>
+                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="social-dribbble"><a href="#"><i class="fa fa-dribbble"></i> </a></li>
+                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i> </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+                <!--=================================
+                 footer -->
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+                <script>
+                    baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+                </script>
+
+
+
+
             </div>
         </div>
     </body>
