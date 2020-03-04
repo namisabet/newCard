@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Informations;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,7 +51,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+			'phone' => 'required|string',
             'password' => 'required|string|min:6|confirmed',
+			'website' => 'required|string',
+			'emailc' => 'required|string',
+			'phonec' => 'required|string',
+			'description' => 'required|string',
+			'ville' => 'required|string',
+			'budget' => 'required|string',
         ]);
     }
 
@@ -62,10 +70,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        /*return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+			'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
+		*/
+		
+		$informations = Informations::create([
+            'titre' => $data['website'],
+            'email' => $data['emailc'],
+            'telephone' => $data['phonec'],
+            'description' => $data['description'],
+            'ville' => $data['ville'],
+            'budget' => $data['budget'],
+        ]);
+
+        $informations->save();
+        $informationId = $informations->id;
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'informationId' => $informationId,
+            'password' => bcrypt($data['password']),
+        ]);
+
+        return $user;
+		
     }
 }

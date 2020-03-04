@@ -18,6 +18,7 @@ class CreateInformationsTable extends Migration
             $table->timestamps();
 			$table->string('titre')->nullable();
 			$table->string('name',100)->nullable();
+			$table->string('email',64)->nullable();
 			$table->string('ville',50)->nullable();
 			$table->string('telephone',50)->nullable();
 			$table->string('description',500)->nullable();

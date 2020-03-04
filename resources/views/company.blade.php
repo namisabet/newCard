@@ -201,6 +201,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h4 class="mb-30">The best way is to develop and follow a plan. Start with your goals in mind and then work backwards to develop the plan. What steps are required to get you to the goals? Make the plan as detailed as possible. Try to visualize and then plan for, every possible setback.</h4>
+                    <h5 class="mb-20">Plus d'info</h5>
                     <p> Commit the plan to paper and then keep it with you at all times. Review it regularly and ensure that every step takes you closer to your Vision and Goals. If the plan doesn’t support the vision then change it!</p>
                     <p>Michael Jordan and Bill Gates. We can look a bit further back in time to Albert Einstein or even further back to Abraham Lincoln. What made each of these people so successful? Motivation.</p>
                     <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
@@ -214,10 +215,7 @@
                             <h5>Ville</h5>
                             <p class="mt-20">A Person</p>
                         </div>
-                        <div class="col-lg-4 col-sm-4 mt-30">
-                            <h5>Timeline</h5>
-                            <p class="mt-20"><b>Start Date:</b> 09-01-2016 <span class="d-block"><b>Launch Date:</b> 11-11-2016</span></p>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -227,8 +225,9 @@
             <div class="row">
                 <div class="col-md-6 mt-40 mb-40">
 
-                    <h4 class="mb-20">Description</h4>
-                    <p>I coach my clients to practice the 3 D’s – Defer, Delegate or Delete. Can the particular activity be done later? Defer it! Can it be done by someone else? Delegate it! Does it need to be done at all? If not, consider deleting it! Posing these questions will help to keep you focused on what is truly important!</p>
+                    <h4 class="mb-20">Contact</h4>
+                    <p>website</p>
+                    <p>email</p>
 
                 </div>
                 <div class="col-md-6 mt-40 mb-40">

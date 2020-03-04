@@ -12,6 +12,45 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="template/images/favicon.ico" />
+
+
+
+    <!-- Typography -->
+    <link rel="stylesheet" type="text/css" href="css/typography.css" />
+
+    <!-- Shortcodes -->
+    <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css" />
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- marketing -->
+    <link rel="stylesheet" type="text/css" href="css/marketing.css" />
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+    <!-- Style customizer -->
+    <link rel="stylesheet" type="text/css" href="css/skins/skin-red.css" data-style="styles"/>
+
+    <style>
+
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
@@ -28,9 +67,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                    <a  href="/"><img src="img/delisoft.png" alt="logo" style="height: 50px"> </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
