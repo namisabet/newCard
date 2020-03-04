@@ -15,6 +15,20 @@
                     @endif
 
                     <!-- Content -->
+					<p>
+						TEST : [ {{ $titre }}  ] AFTER
+						<br>
+						TEST : [ {{ $email }}  ] AFTER
+                        <br>
+                        TEST : [ {{ $phone }}  ] AFTER
+                        <br>
+                        TEST : [ {{ $desc }}  ] AFTER
+                        <br>
+                        TEST : [ {{ $ville }}  ] AFTER
+                        <br>
+                        TEST : [ {{ $budget }}  ] AFTER
+					</p>
+					
                         You are logged in!
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
 					
@@ -23,7 +37,7 @@
 
                             <div class="col-md-6">
                                 <input id="website" type="text" class="form-control" maxlength="64" name="website" value="{{ old('website') }}" required autofocus>
-
+							
                                 @if ($errors->has('website'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('website') }}</strong>
