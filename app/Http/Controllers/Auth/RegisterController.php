@@ -89,7 +89,7 @@ class RegisterController extends Controller
 
         $informations->save();
         $informationId = $informations->id;
-
+		
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],

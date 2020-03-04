@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+		/*$id = Auth::id();
+		$info = DB::table('users')->where('id',$id)->first();
+		echo $info->name;*/
+		
         return view('home');
     }
 }
