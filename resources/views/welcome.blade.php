@@ -75,6 +75,17 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .team-list{
+
+                border: 2px groove black;
+                border-radius: 5px;
+
+            }
+            .team-description{
+                height: 230px;
+                overflow:hidden;
+
+            }
         </style>
 
     </head>
@@ -171,7 +182,7 @@
                             <div class="col-lg-8">
                                 <div class="page-title-name text-left">
                                     <h1>[Titre du Site Web]</h1>
-                                    <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
+                                    <p class="desc">Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
                                 </div>
 
                             </div>
@@ -188,6 +199,8 @@
                  <section class="marketing-team white-bg page-section-ptb">
                     <div class="container">
                         <div class="row">
+
+                            <!-- Card Start -->
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
@@ -201,11 +214,13 @@
                                         <div class="team-contact">
                                             <span class="call"> City </span>
                                             <span class="email">Email?</span>
-                                            <p>Description, description, description, description, description</p>
+                                            <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Card End -->
+
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
@@ -219,7 +234,7 @@
                                         <div class="team-contact">
                                             <span class="call"> +(704) 279-1249</span>
                                             <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p>Contact me if have a particular business project or problem that you’d like to discuss</p>
+                                            <p class="desc">Contact me if have a particular business project or problem that you’d like to discuss</p>
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +252,7 @@
                                         <div class="team-contact">
                                             <span class="call"> +(704) 279-1249</span>
                                             <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p>Contact me if are looking at a launching a new product or business</p>
+                                            <p class="desc">Contact me if are looking at a launching a new product or business</p>
                                         </div>
                                     </div>
                                 </div>
@@ -255,7 +270,7 @@
                                         <div class="team-contact">
                                             <span class="call"> +(704) 279-1249</span>
                                             <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p>Contact me if are interested in growing your business by applying the right marketing mix</p>
+                                            <p class="desc">Contact me if are interested in growing your business by applying the right marketing mix</p>
                                         </div>
                                     </div>
                                 </div>
@@ -273,7 +288,7 @@
                                         <div class="team-contact">
                                             <span class="call"> +(704) 279-1249</span>
                                             <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p>Contact me if have a particular business project or problem that you’d like to discuss</p>
+                                            <p class="desc">Contact me if have a particular business project or problem that you’d like to discuss</p>
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +306,7 @@
                                         <div class="team-contact">
                                             <span class="call"> +(704) 279-1249</span>
                                             <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p>Contact me if are looking at a launching a new product or business</p>
+                                            <p class="desc">Contact me if are looking at a launching a new product or business</p>
                                         </div>
                                     </div>
                                 </div>
@@ -299,11 +314,26 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <div class="mt-50">
-                                    <p>Join our team! Work wherever it works for you.</p>
-                                    <a class="button" href="careers.html">Apply for right position</a>
-                                </div>
+                            <div class="col-sm-12 text-center mt-30">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
 
@@ -326,8 +356,7 @@
                                         <li><a href="#">Home</a></li>
                                         <li><a href="#">About Us</a></li>
                                         <li><a href="#">Service</a></li>
-                                        <li><a href="#">Team</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -338,19 +367,19 @@
                                         <li><a href="#">Create Account</a></li>
                                         <li><a href="#">Company Philosophy</a></li>
                                         <li><a href="#">Corporate Culture</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                        <li><a href="#">Client Management</a></li>
+
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6 xs-mb-30">
                                 <h6 class="text-white mb-30 mt-10 text-uppercase">Contact Us</h6>
                                 <ul class="addresss-info">
-                                    <li><i class="fa fa-map-marker"></i> <p>Address: 17504 Carlton Cuevas Rd, Gulfport, MS, 39503</p> </li>
-                                    <li><i class="fa fa-phone"></i> <a href="tel:7042791249"> <span>+(704) 279-1249 </span> </a> </li>
-                                    <li><i class="fa fa-envelope-o"></i>Email: letstalk@webster.com</li>
+                                    <li> <p>Address: 17504 Carlton Cuevas Rd, Gulfport, MS, 39503</p> </li>
+                                    <li> <a href="tel:7042791249"> <span>+(704) 279-1249 </span> </a> </li>
+                                    <li>Email: letstalk@webster.com</li>
                                 </ul>
                             </div>
+                            <!-- Newsletter Signup
                             <div class="col-lg-4 col-sm-6">
                                 <h6 class="text-white mb-30 mt-10 text-uppercase">Subscribe to Our Newsletter</h6>
                                 <p class="mb-30">Sign Up to our Newsletter to get the latest news and offers.</p>
@@ -364,7 +393,7 @@
                                             <div id="mce-responses" class="clear">
                                                 <div class="response" id="mce-error-response" style="display:none"></div>
                                                 <div class="response" id="mce-success-response" style="display:none"></div>
-                                            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                            </div>
                                             <div style="position: absolute; left: -5000px;" aria-hidden="true">
                                                 <input type="text" name="b_b7ef45306f8b17781aa5ae58a_6b09f39a55" tabindex="-1" value="">
                                             </div>
@@ -375,12 +404,14 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                         </div>
                         <div class="footer-widget mt-20">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> Webster </a> All Rights Reserved </p>
                                 </div>
+                                <!--
                                 <div class="col-lg-6 col-md-6 text-left text-md-right">
                                     <div class="social-icons color-hover mt-10">
                                         <ul>
@@ -391,6 +422,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </div>
