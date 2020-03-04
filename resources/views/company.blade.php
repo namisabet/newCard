@@ -144,7 +144,7 @@
                                 <!-- menu logo -->
                                 <ul class="menu-logo">
                                     <li>
-                                        <a href=""><img src="img/delisoft.png" alt="logo"> </a>
+                                        <a href="/"><img src="img/delisoft.png" alt="logo"> </a>
                                     </li>
                                 </ul>
                                 <!-- menu links -->
@@ -176,13 +176,13 @@
     <!--=================================
      page-title-->
 
-    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/test.jpeg);">
+    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/03.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="page-title-name text-left">
-                        <h1>[Titre du Site Web]</h1>
-                        <p class="desc">Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
+                        <h1>[Titre de la Company]</h1>
+                        <p>Company Short Description</p>
                     </div>
 
                 </div>
@@ -207,12 +207,12 @@
 
                     <div class="row">
                         <div class="col-lg-4 col-sm-4 mt-30">
-                            <h5>Services</h5>
-                            <p class="mt-20">Brand idantity <span class="d-block">Web Design</span></p>
+                            <h5>Budget</h5>
+                            <p class="mt-20">Brand idantity </p>
                         </div>
                         <div class="col-lg-4 col-sm-4 mt-30">
-                            <h5>Collaboration</h5>
-                            <p class="mt-20">A Person<span class="d-block">Creative Director</span></p>
+                            <h5>Ville</h5>
+                            <p class="mt-20">A Person</p>
                         </div>
                         <div class="col-lg-4 col-sm-4 mt-30">
                             <h5>Timeline</h5>
@@ -221,73 +221,48 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img  class="img-fluid full-width" src="template/about/01.jpg">
+                    <img  class="img-fluid full-width" src="template/images/about/01.jpg">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mt-40 mb-40">
+
                     <h4 class="mb-20">Description</h4>
                     <p>I coach my clients to practice the 3 D’s – Defer, Delegate or Delete. Can the particular activity be done later? Defer it! Can it be done by someone else? Delegate it! Does it need to be done at all? If not, consider deleting it! Posing these questions will help to keep you focused on what is truly important!</p>
-                    <ul class="list list-mark">
-                        <li> Award-winning design</li>
-                        <li> Super Fast Customer support </li>
-                        <li> Email Design </li>
-                        <li> Easy to Customize pages</li>
-                        <li> Powerful Performance </li>
-                    </ul>
+
                 </div>
                 <div class="col-md-6 mt-40 mb-40">
-                    <h4>Tasks</h4>
-                    <p>It is truly amazing the damage that we, as parents, can inflict on our children. So why do we do it? For the most part, we don’t do it intentionally or with malice. In the majority of cases, the cause is a well-meaning but unskilled or un-thinking parent, who says the wrong thing at the wrong time, and the message sticks – as simple as that!</p>
-                    <p>And it’s not just parents that are the cause – teachers, friends, clergy members or anyone else that has influence in a child’s life can be a contributor to these self-limiting beliefs!</p>
+                    <h4>Expertises</h4>
+
                     <p class="mb-0"><b>Client:</b> envato</p>
-                    <p><b>Services:</b> Web design, photo</p>
-                    <a class="button" href="#"> live preview </a>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+                    <p class="mb-0"><b>Client:</b> envato</p>
+
+
+                  <!--  <a class="button" href="#"> live preview </a> -->
+
                 </div>
                 <div class="col-lg-12">
-                    <img src="template/03.jpg" class="img-fluid full-width mt-20">
+                    <img src="template/images/03.jpg" class="img-fluid full-width mt-20">
                 </div>
             </div>
-            <div class="blockquote-section mt-40 mb-40">
-                <div class="container">
-                    <div class="row no-gutter">
-                        <div class="col-sm-12 text-center">
-                            <blockquote class="blockquote quote mb-0">
-                                <h2> For a first time entrepreneur, <span class="theme-color">choosing a business</span> that has a clear revenue path is extremely <span class="theme-color">important.</span></h2>
-                                <cite>- Collis Ta’eed <span class="text-gray"> CEO of Envato</span></cite>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="gray-bg p-5 mt-60 mb-60 sm-mt-0 sm-mb-0">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="mb-20">Challenge</h4>
-                        <p>Get the oars in the water and start rowing. Execution is the single biggest factor in achievement, so the faster and better your execution, the quicker you will get to the goals!</p>
-                        <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right
-                            combination of both is the most powerful motivational force known to humankind.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h4 class="mb-20">Strategy</h4>
-                        <p>One of the main areas that I work on with my clients is shedding these non-supportive beliefs and replacing them with beliefs that will help them to accomplish their desires.</p>
-                        <p>And it’s not just parents that are the cause – teachers, friends, clergy members or anyone else that has influence in a child’s life can be a contributor to these self-limiting beliefs!</p>
-                    </div>
-                </div>
-            </div>
+
+
             <div class="row">
                 <div class="col-md-6">
-                    <img src="img/blog/02.jpg" class="img-fluid full-width mt-20">
+                    <img src="template/images/blog/02.jpg" class="img-fluid full-width mt-20">
                 </div>
                 <div class="col-md-6">
-                    <img src="img/blog/01.jpg" class="img-fluid full-width mt-20">
+                    <img src="template/images/blog/01.jpg" class="img-fluid full-width mt-20">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a class="button mt-40" href="#"> click here to inquire </a>
-                </div>
-            </div>
+
         </div>
     </section>
 
@@ -389,7 +364,7 @@
     </script>
 
 </div>
-<div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+<div id="back-to-top"><a class="top arrow" href="#top"> <span style="padding-top: 15px">TOP</span></a></div>
 
 <!--=================================
  jquery -->

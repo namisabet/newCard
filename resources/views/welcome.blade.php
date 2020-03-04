@@ -144,7 +144,7 @@
                                             <!-- menu logo -->
                                             <ul class="menu-logo">
                                                 <li>
-                                                    <a href=""><img src="img/delisoft.png" alt="logo"> </a>
+                                                    <a href="/"><img src="img/delisoft.png" alt="logo"> </a>
                                                 </li>
                                             </ul>
                                             <!-- menu links -->
@@ -208,7 +208,7 @@
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html"> Company Logo A</a></h5>
+                                            <h5><a href="company"> Company Logo A</a></h5>
                                             <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
@@ -437,7 +437,7 @@
                 </script>
 
             </div>
-            <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+            <div id="back-to-top"><a class="top arrow" href="#top"> <span style="padding-top: 15px">TOP</span></a></div>
 
             <!--=================================
              jquery -->
