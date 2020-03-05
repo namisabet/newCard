@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company', 'CompanyController@index')->name('company');
+Route::get('/edit', 'HomeController@edit')->name('edit');

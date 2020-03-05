@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="asset/cards-gallery.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="template/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="img/circle.png" />
 
     <!-- font -->
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900|Nunito:200,300,400,400i,600,600i,700,700i,800,800i,900">

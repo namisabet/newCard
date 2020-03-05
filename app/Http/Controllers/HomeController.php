@@ -37,11 +37,32 @@ class HomeController extends Controller
 		$ville = $companyinfo->ville;
 		$budget = $companyinfo->budget;
 		
-        return view('home')->with('titre',$titre)
+        return view('Home')->with('titre',$titre)
 							->with('email',$email)
 							->with('phone',$phone)
 							->with('desc',$desc)
 							->with('ville',$ville)
 							->with('budget',$budget);
+    }
+    public function edit()
+    {
+        $id = Auth::id();
+        //$user = Auth::user();
+
+        $companyinfo = DB::table('informations')->where('id',$id)->first();
+
+        $titre = $companyinfo->titre;
+        $email = $companyinfo->email;
+        $phone = $companyinfo->telephone;
+        $desc = $companyinfo->description;
+        $ville = $companyinfo->ville;
+        $budget = $companyinfo->budget;
+
+        return view('edit')->with('titre',$titre)
+            ->with('email',$email)
+            ->with('phone',$phone)
+            ->with('desc',$desc)
+            ->with('ville',$ville)
+            ->with('budget',$budget);
     }
 }
