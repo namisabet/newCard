@@ -8,7 +8,6 @@
     <title>Trouvez une agence Web pour votre prochain projet</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-    <link rel="stylesheet" href="asset/cards-gallery.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/circle.png" />
@@ -35,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
     <!-- Style customizer -->
-    <link rel="stylesheet" type="text/css" href="css/skins/skin-red.css" data-style="styles"/>
+    <link rel="stylesheet" type="text/css" href="css/skins/skin-green.css" data-style="styles"/>
 
     <style>
         html, body {

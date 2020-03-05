@@ -123,14 +123,19 @@
                                     @endif
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">
-                                Save
-                            </button>
-                            
-                                <a href="home" class="btn btn-primary">
-                                    Cancel
-                                </a>
 
+                            <div class="form-group" style="align-content: center">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary" style="margin-right: 10px">
+                                        Save
+                                    </button>
+
+                                    <a href="home" class="btn btn-primary">
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
 
                         </form>
                     </div>

@@ -8,7 +8,7 @@
         <title>Trouvez une agence Web pour votre prochain projet</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-        <link rel="stylesheet" href="asset/cards-gallery.css">
+
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="img/circle.png" />
@@ -35,7 +35,7 @@
         <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
         <!-- Style customizer -->
-        <link rel="stylesheet" type="text/css" href="css/skins/skin-red.css" data-style="styles"/>
+        <link rel="stylesheet" type="text/css" href="css/skins/skin-green.css" data-style="styles"/>
 
         <style>
             html, body {
@@ -204,7 +204,9 @@
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        <a href="company">
+                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        </a>
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
@@ -213,7 +215,7 @@
                                         </div>
                                         <div class="team-contact">
                                             <span class="call"> City </span>
-                                            <span class="email">Email?</span>
+                                            <span class="email">Budget</span>
                                             <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
@@ -221,96 +223,116 @@
                             </div>
                             <!-- Card End -->
 
+                            <!-- Card Start -->
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <img class="img-fluid mx-auto" src="template/images/team/02.jpg" alt="">
+                                        <a href="company">
+                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        </a>
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html"> Paul Flavius</a></h5>
-                                            <span>Expert in Paris</span>
+                                            <h5><a href="company"> Company Logo A</a></h5>
+                                            <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
-                                            <span class="call"> +(704) 279-1249</span>
-                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p class="desc">Contact me if have a particular business project or problem that you’d like to discuss</p>
+                                            <span class="call"> City </span>
+                                            <span class="email">Budget</span>
+                                            <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Card End -->
+                            <!-- Card Start -->
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <img class="img-fluid mx-auto" src="template/images/team/03.jpg" alt="">
+                                        <a href="company">
+                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        </a>
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html"> Anne Smith</a></h5>
-                                            <span>Expert in Moscow</span>
+                                            <h5><a href="company"> Company Logo A</a></h5>
+                                            <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
-                                            <span class="call"> +(704) 279-1249</span>
-                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p class="desc">Contact me if are looking at a launching a new product or business</p>
+                                            <span class="call"> City </span>
+                                            <span class="email">Budget</span>
+                                            <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Card End -->
+                            <!-- Card Start -->
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <img class="img-fluid mx-auto" src="template/images/team/04.jpg" alt="">
+                                        <a href="company">
+                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        </a>
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html">  Sara Lisbon</a></h5>
-                                            <span>Expert in UK</span>
+                                            <h5><a href="company"> Company Logo A</a></h5>
+                                            <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
-                                            <span class="call"> +(704) 279-1249</span>
-                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p class="desc">Contact me if are interested in growing your business by applying the right marketing mix</p>
+                                            <span class="call"> City </span>
+                                            <span class="email">Budget</span>
+                                            <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 sm-mb-30">
+                            <!-- Card End -->
+                            <!-- Card Start -->
+                            <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <img class="img-fluid mx-auto" src="template/images/team/02.jpg" alt="">
+                                        <a href="company">
+                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        </a>
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html"> Paul Flavius</a></h5>
-                                            <span>Expert in Mumbai</span>
+                                            <h5><a href="company"> Company Logo A</a></h5>
+                                            <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
-                                            <span class="call"> +(704) 279-1249</span>
-                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p class="desc">Contact me if have a particular business project or problem that you’d like to discuss</p>
+                                            <span class="call"> City </span>
+                                            <span class="email">Budget</span>
+                                            <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 sm-mb-30">
+                            <!-- Card End -->
+                            <!-- Card Start -->
+                            <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        <a href="company">
+                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
+                                        </a>
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="team-single.html"> MARTIN SMITH</a></h5>
-                                            <span>Expert in New york</span>
+                                            <h5><a href="company"> Company Logo A</a></h5>
+                                            <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">
-                                            <span class="call"> +(704) 279-1249</span>
-                                            <span class="email"> <i class="fa fa-envelope-o"></i> letstalk@webster.com</span>
-                                            <p class="desc">Contact me if are looking at a launching a new product or business</p>
+                                            <span class="call"> City </span>
+                                            <span class="email">Budget</span>
+                                            <p  class="desc">Description, description, description, description, description</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Card End -->
                         </div>
 
                         <div class="row">

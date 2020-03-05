@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
     <!-- Style customizer -->
-    <link rel="stylesheet" type="text/css" href="css/skins/skin-red.css" data-style="styles"/>
+    <link rel="stylesheet" type="text/css" href="css/skins/skin-green.css" data-style="styles"/>
 
     <style>
 
