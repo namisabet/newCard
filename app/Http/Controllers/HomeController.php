@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
 		$id = Auth::id();
-		//$user = Auth::user();
+		$user = Auth::user();
 		
-		$companyinfo = DB::table('informations')->where('id',$id)->first();	
+		$companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
 		
 		$titre = $companyinfo->titre;
 		$email = $companyinfo->email;
@@ -47,9 +47,9 @@ class HomeController extends Controller
     public function edit()
     {
         $id = Auth::id();
-        //$user = Auth::user();
+        $user = Auth::user();
 
-        $companyinfo = DB::table('informations')->where('id',$id)->first();
+        $companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
 
         $titre = $companyinfo->titre;
         $email = $companyinfo->email;

@@ -10,7 +10,7 @@
                     <div class="panel-heading">Edit Information</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <form class="form-horizontal" method="POST" action="{{ route('edit') }}">
 
                             <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }}">
                                 <label for="website" class="col-md-4 control-label">Site Web (URL)</label>
