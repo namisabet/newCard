@@ -64,10 +64,10 @@
                                     @endif
                                 </div>
                             </div>
+
+                            <!-- Ville -->
                             <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
                                 <label for="ville" class="col-md-4 control-label">Ville</label>
-
-
 
                                 <div class="col-md-6">
 
@@ -96,22 +96,24 @@
                                     @endif
                                 </div>
                             </div>
+
+                            <!-- Budget -->
                             <div class="form-group{{ $errors->has('budget') ? ' has-error' : '' }}">
                                 <label for="budget" class="col-md-4 control-label">Budget</label>
 
                                 <div class="col-md-6">
+
                                     <select name="budget" id="budget">
-
-                                        <option value="0 ~ 3,000 $">0 ~ 3,000 $</option>
-
-                                        <option value="3,000 ~ 10,000 $">3,000 ~ 10,000 $</option>
-
-                                        <option value="10,000 ~ 25,000 $">10,000 ~ 25,000 $</option>
-
-                                        <option value="25,000 ~ 50,000 $">25,000 ~ 50,000 $</option>
-
-                                        <option value="50,000 + $">50,000 + $</option>
-
+                                        @php
+                                            $budgetList = array("0 ~ 3,000 $","3,000 ~ 10,000 $","10,000 ~ 25,000 $","25,000 ~ 50,000 $","50,000 + $");
+                                        @endphp
+                                        @foreach($budgetList as $budgetName)
+                                            @if($budget == $budgetName)
+                                                <option value='{{$budgetName}}' selected>{{$budgetName}}</option>
+                                            @else
+                                                <option value='{{$budgetName}}'>{{$budgetName}}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
 
                                     @if ($errors->has('budget'))

@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h2>Dashboard</h2></div>
 
-                <div class="panel-body">
+                <div class="panel-body" style="overflow: hidden">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -16,12 +16,12 @@
 
                     <!-- Content -->
 
-                        <p>Site Web (URL): {{ $titre }}</p>
-                        <p>Addresse Email de Compagnie: {{ $email }}</p>
-                        <p>Telephone de Compagnie: {{ $phone }}</p>
-                        <p>Description de Compagnie: {{ $desc }}</p>
-                        <p>Ville: {{ $ville }}</p>
-                        <p>Budget: {{ $budget }}</p>
+                        <p><b>Site Web (URL):</b> {{ $titre }}</p>
+                        <p><b>Addresse Email de Compagnie:</b> {{ $email }}</p>
+                        <p><b>Telephone de Compagnie:</b> {{ $phone }}</p>
+                        <p><b>Description de Compagnie:</b> {{ $desc }}</p>
+                        <p><b>Ville:</b> {{ $ville }}</p>
+                        <p><b>Budget:</b> {{ $budget }}</p>
 
 
                         <form action="edit">
