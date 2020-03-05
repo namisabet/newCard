@@ -353,7 +353,7 @@
                                 <div class="footer-useful-link footer-hedding">
                                     <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
                                     <ul>
-                                        <li><a href="#">Home</a></li>
+                                        <li><a href="/">Home</a></li>
                                         <li><a href="#">About Us</a></li>
                                         <li><a href="#">Service</a></li>
 
@@ -364,7 +364,7 @@
                                 <div class="footer-useful-link footer-hedding">
                                     <h6 class="text-white mb-30 mt-10 text-uppercase">Useful Link</h6>
                                     <ul>
-                                        <li><a href="#">Create Account</a></li>
+                                        <li><a href="register">Create Account</a></li>
                                         <li><a href="#">Company Philosophy</a></li>
                                         <li><a href="#">Corporate Culture</a></li>
 

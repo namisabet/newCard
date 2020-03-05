@@ -73,24 +73,19 @@
 
                                     <select id="ville" name="ville"tabindex="12">
 
-
-
-                                        <?php
+                                        @php
                                         $villeList = array("Montréal","Québec","Gatineau","Sherbrooke","Trois-Rivières",
                                             "Laval","Rimouski","Saguenay","Terrebonne","Lévis",
                                             "Saint-Jean-sur-Richelieu","Repentigny","Drummondville","Saint-Jérôme","Granby",
                                             "Granby","Shawinigan","Val d'Or","Rouyn-Noranda","St-George", "Thetford Mines");
-
-                                        $oldVille = '$ville';
-
-                                        foreach($villeList as $villeName){
-                                            if($oldVille == $villeName)
-                                                echo "<option value='$villeName' selected>$villeName</option>";
-                                            else
-                                                echo "<option value='$villeName'>$villeName</option>";
-                                        }
-
-                                        ?>
+                                        @endphp
+                                        @foreach($villeList as $villeName)
+                                            @if($ville == $villeName)
+                                                <option value='{{$villeName}}' selected>{{$villeName}}</option>
+                                            @else
+                                                <option value='{{$villeName}}'>{{$villeName}}</option>
+                                            @endif
+                                        @endforeach
 
                                     </select>
 
