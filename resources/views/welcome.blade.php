@@ -208,20 +208,27 @@
                             <!-- Card Dynamic -->
                             <?php
 
-
                                     //Get Database
-                                    //$user = Auth::user();
-                                    //$companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
                                     $companies = DB::table('informations')->get();
+
+                                    //Count number of total rows
+                                    $total = count($companies);
+
+                                    //Total pages
+                                    $totalPages= ceil($total/10);
 
                                     //Initialize Loop
                                     $i=0;
-                                    $dbArray=array("1", "2", "3", "4", "5", "6");
+                                    $page=0;
+                                    $pageNo=1;
+
+                                    //Check Page
+                                    if(isset($_GET['page'])){
+                                        $pageNo = $_GET['page'];
+                                    }
 
                                     //Dynamic Card Views
-                                    foreach($dbArray as $company){
-
-
+                                    for ($y=0;$y<10;$y++){
                                         //Next id
                                         $i++;
                                         //Get specific Row
@@ -249,6 +256,7 @@
                                             echo '</div>';
                                         echo '</div>';
                                     }
+
                                 /* Dynamic Card Template
                                 echo '<div class="col-lg-6 col-md-6 mb-30">';
                                 echo '<div class="team team-list">';
@@ -304,21 +312,59 @@
                             <div class="col-sm-12 text-center mt-30">
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-center">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
+
+                                        <?php
+                                                //Dynamic Page Numbers
+
+                                                $next=$pageNo+1;
+
+                                                //Page == 1
+                                                if($pageNo==1){
+
+                                                    $previous=$pageNo-1;
+
+                                                    //Previous page
+                                                    echo'<li class="page-item">';
+                                                    echo'<a class="page-link" href="/" aria-label="Previous">';
+                                                    echo'<span aria-hidden="true">&laquo;</span>';
+                                                    echo'<span class="sr-only">Previous</span>';
+                                                    echo'</a>';
+                                                    echo'</li>';
+
+                                                    for($i=$pageNo;$i<$pageNo+3;$i++){
+                                                        echo '<li class="page-item"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
+                                                    }
+                                                }
+                                                else{ //Page > 1
+                                                    $previous=$pageNo-1;
+
+                                                    //Previous page
+                                                    echo'<li class="page-item">';
+                                                    echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
+                                                    echo'<span aria-hidden="true">&laquo;</span>';
+                                                    echo'<span class="sr-only">Previous</span>';
+                                                    echo'</a>';
+                                                    echo'</li>';
+
+                                                    for($i=$pageNo-1;$i<$pageNo+3;$i++){
+                                                        echo '<li class="page-item"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
+                                                    }
+
+                                                }
+
+                                                //Next page
+                                        echo '<li class="page-item">';
+                                        echo '<a class="page-link" href="/?page='.$next.'" aria-label="Next">';
+                                        echo '<span aria-hidden="true">&raquo;</span>';
+                                        echo '<span class="sr-only">Next</span>';
+                                        echo '</a>';
+                                        echo '</li>';
+
+                                        ?>
+
+                                        <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
+                                        <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+
                                     </ul>
                                 </nav>
                             </div>
