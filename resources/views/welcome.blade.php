@@ -1,3 +1,8 @@
+<?php
+//Import
+
+?>
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -202,25 +207,43 @@
 
                             <!-- Card Dynamic -->
                             <?php
+
+
+                                    //Get Database
+                                    //$user = Auth::user();
+                                    //$companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
+                                    $companies = DB::table('informations')->get();
+
+                                    //Initialize Loop
+                                    $i=0;
                                     $dbArray=array("1", "2", "3", "4", "5", "6");
+
                                     //Dynamic Card Views
                                     foreach($dbArray as $company){
+
+
+                                        //Next id
+                                        $i++;
+                                        //Get specific Row
+                                        $companyinfo = DB::table('informations')->where('id',$i)->first();
+
+
                                         echo '<div class="col-lg-6 col-md-6 mb-30">';
                                             echo '<div class="team team-list">';
                                                 echo '<div class="team-photo">';
-                                                    echo '<a href="company?id=1">';
+                                                    echo '<a href="company?id='.$i.'">';
                                                         echo '<img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">';
                                                     echo '</a>';
                                                 echo '</div>';
                                                 echo '<div class="team-description">';
                                                      echo '<div class="team-info">';
-                                                        echo '<h5><a href="company?id=1"> Company Logo A</a></h5>';
-                                                        echo '<span>Company Name A</span>';
+                                                        echo '<h5><a href="company?id='.$i.'"> '.$companyinfo->titre.' </a></h5>';
+                                                        echo '<span>'.$companyinfo->titre.'</span>';
                                                      echo '</div>';
                                                      echo '<div class="team-contact">';
-                                                            echo '<span class="call"> City </span>';
-                                                            echo '<span class="email">Budget</span>';
-                                                            echo '<p  class="desc">Description, description, description, description, description</p>';
+                                                            echo '<span class="call"> '.$companyinfo->ville.' </span>';
+                                                            echo '<span class="email">'.$companyinfo->budget.'</span>';
+                                                            echo '<p  class="desc" style="font-size: 12px">'.$companyinfo->description.'</p>';
                                                      echo '</div>';
                                                 echo '</div>';
                                             echo '</div>';
