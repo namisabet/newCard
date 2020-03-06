@@ -10,8 +10,8 @@
                     <div class="panel-heading">Edit Information</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('edit') }}">
-
+                        <form class="form-horizontal" method="POST" action="{{ route('postEdit') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <!-- Company Title -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="titre" class="col-md-4 control-label">Titre de la Compagnie</label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Informations;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -25,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+
 		$id = Auth::id();
 		$user = Auth::user();
 		
@@ -72,5 +76,33 @@ class HomeController extends Controller
             ->with('ville',$ville)
             ->with('budget',$budget)
             ->with('expert',$expert);
+    }
+    public function postEdit()
+    {
+        $user = Auth::user();
+
+        $companyinfo = Informations::find($user->informationId);
+
+        $inputs = request()->all();
+
+        $companyinfo->titre = $inputs['titre'];
+        $companyinfo->link = $inputs['link'];
+        $companyinfo->email = $inputs['emailc'];
+        $companyinfo->telephone = $inputs['phonec'];
+        $companyinfo->description = $inputs['description'];
+        $companyinfo->expertise = $inputs['expertise'];
+        $companyinfo->ville = $inputs['ville'];
+        $companyinfo->budget = $inputs['budget'];
+
+        $companyinfo->save();
+
+        return view('Home')->with('titre',$companyinfo->titre)
+            ->with('link',$companyinfo->link)
+            ->with('email',$companyinfo->email)
+            ->with('phone',$companyinfo->telephone)
+            ->with('desc',$companyinfo->description)
+            ->with('ville',$companyinfo->expertise)
+            ->with('budget',$companyinfo->ville)
+            ->with('expert',$companyinfo->budget);
     }
 }

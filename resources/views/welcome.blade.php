@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="team-description">
                                         <div class="team-info">
-                                            <h5><a href="company"> Company Logo A</a></h5>
+                                            <h5><a href="company?id=1"> Company Logo A</a></h5>
                                             <span>Company Name A</span>
                                         </div>
                                         <div class="team-contact">

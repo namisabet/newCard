@@ -1,3 +1,33 @@
+
+<?php
+        //Check ID
+if(isset($_GET['id'])){
+$var = $_GET['id'];
+}
+
+//Initialize
+$string="UndefinedString";
+$string1="UndefinedString1";
+$buffer="UndefinedBuffer";
+
+//Ultra REGEX Expertise, Cookie set in CompanyController
+if(!isset($_COOKIE["desc1"])) {
+    echo "Cookie named '" . "desc1" . "' is not set!";
+} else {
+        // Remove line break before and after :
+        $buffer = str_replace(array("\r : \r", "\n : \n"), ': ', $_COOKIE["desc1"]);
+
+        //Remove Extra Line Breaks
+        $string1 = preg_replace('/\s*$^\s*/m', "\n", $buffer);
+
+        //Add Bold
+        $string = str_replace(array("\r : \r", "\n : \n"), ': ', $string1);
+
+        //echo preg_replace('/[ \t]+/', ' ', $string);
+}
+
+?>
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -180,8 +210,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="page-title-name text-left">
-                        <h1>[Titre de la Company]</h1>
-                        <p>Company Short Description</p>
+                        <h1>{{ $titre }}</h1>
+                        <!-- <p>Company Short Description</p> -->
                     </div>
 
                 </div>
@@ -199,20 +229,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h4 class="mb-30">The best way is to develop and follow a plan. Start with your goals in mind and then work backwards to develop the plan. What steps are required to get you to the goals? Make the plan as detailed as possible. Try to visualize and then plan for, every possible setback.</h4>
+
+                    <!-- Description 1  -->
+                    <h4 class="mb-30"> {{ $desc }} </h4>
+
+                    <!-- Description 2
                     <h5 class="mb-20">Plus d'info</h5>
-                    <p> Commit the plan to paper and then keep it with you at all times. Review it regularly and ensure that every step takes you closer to your Vision and Goals. If the plan doesn’t support the vision then change it!</p>
-                    <p>Michael Jordan and Bill Gates. We can look a bit further back in time to Albert Einstein or even further back to Abraham Lincoln. What made each of these people so successful? Motivation.</p>
-                    <p>Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
+                    <p> {{ $desc }} </p>
+                    -->
 
                     <div class="row">
                         <div class="col-lg-4 col-sm-4 mt-30">
                             <h5>Budget</h5>
-                            <p class="mt-20">Brand idantity </p>
+                            <p class="mt-20">{{ $budget }}</p>
                         </div>
                         <div class="col-lg-4 col-sm-4 mt-30">
                             <h5>Ville</h5>
-                            <p class="mt-20">A Person</p>
+                            <p class="mt-20">{{ $ville }}</p>
                         </div>
 
                     </div>
@@ -225,22 +258,19 @@
                 <div class="col-md-6 mt-40 mb-40">
 
                     <h4 class="mb-20">Contact</h4>
-                    <p>website</p>
-                    <p>email</p>
+                    <a href="{{ $link }}">{{ $link }}</a>
+                    <p>{{ $email }}</p>
 
                 </div>
                 <div class="col-md-6 mt-40 mb-40">
                     <h4>Expertises</h4>
 
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
-                    <p class="mb-0"><b>Client:</b> envato</p>
+                   <!-- <p class="mb-0"><b>Client:</b> envato</p> -->
+
+                    <p class="mb-0" style="white-space: pre-line">
+                        {{ $string }}
+                    </p>
+
 
 
                   <!--  <a class="button" href="#"> live preview </a> -->
