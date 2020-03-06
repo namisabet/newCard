@@ -12,15 +12,31 @@
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('edit') }}">
 
-                            <div class="form-group{{ $errors->has('website') ? ' has-error' : '' }}">
-                                <label for="website" class="col-md-4 control-label">Site Web (URL)</label>
+                            <!-- Company Title -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Titre de la Compagnie</label>
 
                                 <div class="col-md-6">
-                                    <input id="website" type="text" class="form-control" maxlength="64" name="website" value="{{ $titre }}" required autofocus>
+                                    <input id="titre" type="text" class="form-control" maxlength="64" name="titre" value="{{ $titre }}" required autofocus>
 
-                                    @if ($errors->has('website'))
+                                    @if ($errors->has('titre'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('website') }}</strong>
+                                        <strong>{{ $errors->first('titre') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <!-- Website Link -->
+                            <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
+                                <label for="link" class="col-md-4 control-label">Site Web (URL)</label>
+
+                                <div class="col-md-6">
+                                    <input id="link" type="text" class="form-control" maxlength="64" name="link" value="{{ $link }}" required autofocus>
+
+                                    @if ($errors->has('link'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('link') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -64,7 +80,21 @@
                                     @endif
                                 </div>
                             </div>
+                            <!-- Company Expertise -->
+                            <div class="form-group{{ $errors->has('expertise') ? ' has-error' : '' }}">
+                                <label for="expertise" class="col-md-4 control-label">Expertise de la Compagnie</label>
 
+                                <div class="col-md-6">
+                                <textarea rows="3" cols="40" id="expertise" maxlength="500" class="form-control @error('expertise') is-invalid @enderror" name="expertise" value="{{ old('expertise') }}" required autocomplete="expertise" autofocus>{{ $expert }}
+
+                                </textarea>
+                                    @if ($errors->has('expertise'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('expertise') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
                             <!-- Ville -->
                             <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
                                 <label for="ville" class="col-md-4 control-label">Ville</label>

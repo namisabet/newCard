@@ -31,18 +31,22 @@ class HomeController extends Controller
 		$companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
 		
 		$titre = $companyinfo->titre;
+        $link = $companyinfo->link;
 		$email = $companyinfo->email;
 		$phone = $companyinfo->telephone;
 		$desc = $companyinfo->description;
 		$ville = $companyinfo->ville;
 		$budget = $companyinfo->budget;
+        $expert = $companyinfo->expertise;
 		
         return view('Home')->with('titre',$titre)
+                            ->with('link',$link)
 							->with('email',$email)
 							->with('phone',$phone)
 							->with('desc',$desc)
 							->with('ville',$ville)
-							->with('budget',$budget);
+							->with('budget',$budget)
+                            ->with('expert',$expert);
     }
     public function edit()
     {
@@ -52,17 +56,21 @@ class HomeController extends Controller
         $companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
 
         $titre = $companyinfo->titre;
+        $link = $companyinfo->link;
         $email = $companyinfo->email;
         $phone = $companyinfo->telephone;
         $desc = $companyinfo->description;
         $ville = $companyinfo->ville;
         $budget = $companyinfo->budget;
+        $expert = $companyinfo->expertise;
 
         return view('edit')->with('titre',$titre)
+            ->with('link',$link)
             ->with('email',$email)
             ->with('phone',$phone)
             ->with('desc',$desc)
             ->with('ville',$ville)
-            ->with('budget',$budget);
+            ->with('budget',$budget)
+            ->with('expert',$expert);
     }
 }

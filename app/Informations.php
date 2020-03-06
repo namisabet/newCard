@@ -15,7 +15,7 @@ class Informations extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'titre', 'email', 'telephone', 'description', 'ville', 'budget',
+        'titre', 'link', 'email', 'telephone', 'description', 'expertise','ville', 'budget',
     ];
 
     /**

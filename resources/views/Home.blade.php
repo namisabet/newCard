@@ -15,13 +15,14 @@
                     @endif
 
                     <!-- Content -->
-
-                        <p><b>Site Web (URL):</b> {{ $titre }}</p>
+                        <p><b>Titre de la Compaqnie:</b> {{ $titre }}</p>
+                        <p><b>Site Web (URL):</b> {{ $link }}</p>
                         <p><b>Addresse Email de Compagnie:</b> {{ $email }}</p>
                         <p><b>Telephone de Compagnie:</b> {{ $phone }}</p>
                         <p><b>Description de Compagnie:</b> {{ $desc }}</p>
                         <p><b>Ville:</b> {{ $ville }}</p>
                         <p><b>Budget:</b> {{ $budget }}</p>
+                        <p><b>Expertise:</b> {{ $expert }}</p>
 
 
                         <form action="edit">

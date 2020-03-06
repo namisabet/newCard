@@ -77,19 +77,37 @@
 
                         <div class="panel-heading" style="border-bottom: 2px solid gray; margin-top:30px; margin-bottom:30px"><h4>Company Registration</h4></div>
 
-						<div class="form-group{{ $errors->has('website') ? ' has-error' : '' }}">
-                            <label for="website" class="col-md-4 control-label">Site Web (URL)</label>
+                        <!-- Company Title -->
+                        <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                            <label for="titre" class="col-md-4 control-label">Titre de la Compagnie</label>
 
                             <div class="col-md-6">
-                                <input id="website" type="text" class="form-control" maxlength="64" name="website" value="{{ old('website') }}" required autofocus>
+                                <input id="titre" type="text" class="form-control" maxlength="64" name="titre" value="{{ old('titre') }}" required autofocus>
 
-                                @if ($errors->has('website'))
+                                @if ($errors->has('titre'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('website') }}</strong>
+                                        <strong>{{ $errors->first('titre') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Website Link -->
+                        <div class="form-group{{ $errors->has('link') ? ' has-error' : '' }}">
+                            <label for="link" class="col-md-4 control-label">Site Web (URL)</label>
+
+                            <div class="col-md-6">
+                                <input id="link" type="text" class="form-control" maxlength="64" name="link" value="{{ old('link') }}" required autofocus>
+
+                                @if ($errors->has('link'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('link') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Company Email -->
 						<div class="form-group{{ $errors->has('emailc') ? ' has-error' : '' }}">
                             <label for="emailc" class="col-md-4 control-label">Addresse Email de Compagnie</label>
 
@@ -103,6 +121,8 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Phone -->
 						<div class="form-group{{ $errors->has('phonec') ? ' has-error' : '' }}">
                             <label for="phonec" class="col-md-4 control-label">Telephone de Compagnie</label>
 
@@ -116,6 +136,8 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Company Description -->
 						<div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Description de Compagnie</label>
 
@@ -130,6 +152,23 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Company Expertise -->
+                        <div class="form-group{{ $errors->has('expertise') ? ' has-error' : '' }}">
+                            <label for="expertise" class="col-md-4 control-label">Expertise de la Compagnie</label>
+
+                            <div class="col-md-6">
+                                <textarea rows="3" cols="40" id="expertise" maxlength="500" class="form-control @error('expertise') is-invalid @enderror" name="expertise" value="{{ old('expertise') }}" required autocomplete="expertise" autofocus>
+
+                                </textarea>
+                                @if ($errors->has('expertise'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('expertise') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 						<div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
                             <label for="ville" class="col-md-4 control-label">Ville</label>
 

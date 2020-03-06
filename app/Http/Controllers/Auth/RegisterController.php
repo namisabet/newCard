@@ -53,10 +53,12 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
 			'phone' => 'required|string',
             'password' => 'required|string|min:6|confirmed',
-			'website' => 'required|string',
+            'titre' => 'required|string',
+			'link' => 'required|string',
 			'emailc' => 'required|string',
 			'phonec' => 'required|string',
 			'description' => 'required|string',
+            'expertise' => 'required|string',
 			'ville' => 'required|string',
 			'budget' => 'required|string',
         ]);
@@ -79,10 +81,12 @@ class RegisterController extends Controller
 		*/
 		
 		$informations = Informations::create([
-            'titre' => $data['website'],
+            'titre' => $data['titre'],
+            'link' => $data['link'],
             'email' => $data['emailc'],
             'telephone' => $data['phonec'],
             'description' => $data['description'],
+            'expertise' => $data['expertise'],
             'ville' => $data['ville'],
             'budget' => $data['budget'],
         ]);
