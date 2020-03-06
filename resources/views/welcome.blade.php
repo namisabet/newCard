@@ -200,11 +200,63 @@
                     <div class="container">
                         <div class="row">
 
+                            <!-- Card Dynamic -->
+                            <?php
+                                    $dbArray=array("1", "2", "3", "4", "5", "6");
+                                    //Dynamic Card Views
+                                    foreach($dbArray as $company){
+                                        echo '<div class="col-lg-6 col-md-6 mb-30">';
+                                            echo '<div class="team team-list">';
+                                                echo '<div class="team-photo">';
+                                                    echo '<a href="company?id=1">';
+                                                        echo '<img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">';
+                                                    echo '</a>';
+                                                echo '</div>';
+                                                echo '<div class="team-description">';
+                                                     echo '<div class="team-info">';
+                                                        echo '<h5><a href="company?id=1"> Company Logo A</a></h5>';
+                                                        echo '<span>Company Name A</span>';
+                                                     echo '</div>';
+                                                     echo '<div class="team-contact">';
+                                                            echo '<span class="call"> City </span>';
+                                                            echo '<span class="email">Budget</span>';
+                                                            echo '<p  class="desc">Description, description, description, description, description</p>';
+                                                     echo '</div>';
+                                                echo '</div>';
+                                            echo '</div>';
+                                        echo '</div>';
+                                    }
+                                /* Dynamic Card Template
+                                echo '<div class="col-lg-6 col-md-6 mb-30">';
+                                echo '<div class="team team-list">';
+                                echo '<div class="team-photo">';
+                                echo '<a href="company?id=1">';
+                                echo '<img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">';
+                                echo '</a>';
+                                echo '</div>';
+                                echo '<div class="team-description">';
+                                echo '<div class="team-info">';
+                                echo '<h5><a href="company?id=1"> Company Logo A</a></h5>';
+                                echo '<span>Company Name A</span>';
+                                echo '</div>';
+                                echo '<div class="team-contact">';
+                                echo '<span class="call"> City </span>';
+                                echo '<span class="email">Budget</span>';
+                                echo '<p  class="desc">Description, description, description, description, description</p>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                                */
+                                //echo '';
+                            ?>
+                            <!-- Card HTML -->
                             <!-- Card Start -->
+                            <!--
                             <div class="col-lg-6 col-md-6 mb-30">
                                 <div class="team team-list">
                                     <div class="team-photo">
-                                        <a href="company">
+                                        <a href="company?id=1">
                                             <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
                                         </a>
                                     </div>
@@ -221,120 +273,10 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                             <!-- Card End -->
 
-                            <!-- Card Start -->
-                            <div class="col-lg-6 col-md-6 mb-30">
-                                <div class="team team-list">
-                                    <div class="team-photo">
-                                        <a href="company">
-                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="team-description">
-                                        <div class="team-info">
-                                            <h5><a href="company"> Company Logo A</a></h5>
-                                            <span>Company Name A</span>
-                                        </div>
-                                        <div class="team-contact">
-                                            <span class="call"> City </span>
-                                            <span class="email">Budget</span>
-                                            <p  class="desc">Description, description, description, description, description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card End -->
-                            <!-- Card Start -->
-                            <div class="col-lg-6 col-md-6 mb-30">
-                                <div class="team team-list">
-                                    <div class="team-photo">
-                                        <a href="company">
-                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="team-description">
-                                        <div class="team-info">
-                                            <h5><a href="company"> Company Logo A</a></h5>
-                                            <span>Company Name A</span>
-                                        </div>
-                                        <div class="team-contact">
-                                            <span class="call"> City </span>
-                                            <span class="email">Budget</span>
-                                            <p  class="desc">Description, description, description, description, description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card End -->
-                            <!-- Card Start -->
-                            <div class="col-lg-6 col-md-6 mb-30">
-                                <div class="team team-list">
-                                    <div class="team-photo">
-                                        <a href="company">
-                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="team-description">
-                                        <div class="team-info">
-                                            <h5><a href="company"> Company Logo A</a></h5>
-                                            <span>Company Name A</span>
-                                        </div>
-                                        <div class="team-contact">
-                                            <span class="call"> City </span>
-                                            <span class="email">Budget</span>
-                                            <p  class="desc">Description, description, description, description, description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card End -->
-                            <!-- Card Start -->
-                            <div class="col-lg-6 col-md-6 mb-30">
-                                <div class="team team-list">
-                                    <div class="team-photo">
-                                        <a href="company">
-                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="team-description">
-                                        <div class="team-info">
-                                            <h5><a href="company"> Company Logo A</a></h5>
-                                            <span>Company Name A</span>
-                                        </div>
-                                        <div class="team-contact">
-                                            <span class="call"> City </span>
-                                            <span class="email">Budget</span>
-                                            <p  class="desc">Description, description, description, description, description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card End -->
-                            <!-- Card Start -->
-                            <div class="col-lg-6 col-md-6 mb-30">
-                                <div class="team team-list">
-                                    <div class="team-photo">
-                                        <a href="company">
-                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="team-description">
-                                        <div class="team-info">
-                                            <h5><a href="company"> Company Logo A</a></h5>
-                                            <span>Company Name A</span>
-                                        </div>
-                                        <div class="team-contact">
-                                            <span class="call"> City </span>
-                                            <span class="email">Budget</span>
-                                            <p  class="desc">Description, description, description, description, description</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card End -->
                         </div>
-
                         <div class="row">
                             <div class="col-sm-12 text-center mt-30">
                                 <nav aria-label="Page navigation example">

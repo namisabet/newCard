@@ -15,6 +15,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        //Initialize
+        session_start();
+        $var=1;
+
         if(isset($_GET['id'])){
             $var = $_GET['id'];
         }
@@ -22,6 +26,7 @@ class CompanyController extends Controller
         $id = Auth::id();
         $user = Auth::user();
 
+        //Connect to database
         $companyinfo = DB::table('informations')->where('id',$var)->first();
 
         $titre = $companyinfo->titre;
@@ -33,10 +38,10 @@ class CompanyController extends Controller
         $budget = $companyinfo->budget;
         $expert = $companyinfo->expertise;
 
-        $cookie_name = "desc1";
-        $cookie_value = $expert;
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        //Put expertise in session
+        $_SESSION["desc1"] = $expert;
 
+        //Return View
         return view('company')->with('titre',$titre)
             ->with('link',$link)
             ->with('email',$email)

@@ -1,6 +1,7 @@
 
 <?php
-        //Check ID
+
+//Check ID
 if(isset($_GET['id'])){
 $var = $_GET['id'];
 }
@@ -9,21 +10,29 @@ $var = $_GET['id'];
 $string="UndefinedString";
 $string1="UndefinedString1";
 $buffer="UndefinedBuffer";
+$buffer1="UndefinedBuffer";
 
 //Ultra REGEX Expertise, Cookie set in CompanyController
-if(!isset($_COOKIE["desc1"])) {
+if(!isset($_SESSION["desc1"])) {
     echo "Cookie named '" . "desc1" . "' is not set!";
+    header("Refresh:0");
+
 } else {
-        // Remove line break before and after :
-        $buffer = str_replace(array("\r : \r", "\n : \n"), ': ', $_COOKIE["desc1"]);
+    // Remove line break before and after :
+    $buffer1 = str_replace(array("Expertises"), '', $_SESSION["desc1"]);
 
-        //Remove Extra Line Breaks
-        $string1 = preg_replace('/\s*$^\s*/m', "\n", $buffer);
 
-        //Add Bold
-        $string = str_replace(array("\r : \r", "\n : \n"), ': ', $string1);
+    // Remove line break before and after :
+    $buffer = str_replace(array("\r : \r", "\n : \n"), ': ', $buffer1);
 
-        //echo preg_replace('/[ \t]+/', ' ', $string);
+    //Remove Extra Line Breaks
+    $string1 = preg_replace('/\s*$^\s*/m', "\n", $buffer);
+
+    //Remove Bold
+    $string = str_replace(array(" "), ' ', $string1);
+
+    //echo preg_replace('/[ \t]+/', ' ', $string);
+
 }
 
 ?>
@@ -267,9 +276,9 @@ if(!isset($_COOKIE["desc1"])) {
 
                    <!-- <p class="mb-0"><b>Client:</b> envato</p> -->
 
-                    <p class="mb-0" style="white-space: pre-line">
+                    <p class="mb-0" style="white-space: pre-line; font-size: 12px"><strong>
                         {{ $string }}
-                    </p>
+                        </strong> </p>
 
 
 
