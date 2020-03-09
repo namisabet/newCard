@@ -227,6 +227,15 @@
                                         $pageNo = $_GET['page'];
                                     }
 
+                                    //Get right company ids depending on page number
+                                    if ($pageNo == 1){
+                                        $i=0;
+                                    }
+                                    else{
+                                        $i=(($pageNo-1)*10);
+                                    }
+
+
                                     //Dynamic Card Views
                                     for ($y=0;$y<10;$y++){
                                         //Next id
