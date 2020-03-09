@@ -190,6 +190,7 @@ if(!isset($_SESSION["desc1"])) {
 
                                     @if (Route::has('login'))
                                         <div class="top-right links">
+                                                 <a href="{{ route('search') }}">Search</a>
                                             @if (Auth::check())
                                                 <a href="{{ url('/home') }}">Home</a>
                                             @else

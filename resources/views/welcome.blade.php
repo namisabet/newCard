@@ -1,5 +1,5 @@
 <?php
-//Import
+
 
 ?>
 
@@ -157,6 +157,7 @@
 
                                                 @if (Route::has('login'))
                                                     <div class="top-right links">
+                                                            <a href="{{ url('/search') }}">Search</a>
                                                         @if (Auth::check())
                                                             <a href="{{ url('/home') }}">Home</a>
                                                         @else
@@ -221,6 +222,7 @@
                                     $i=0;
                                     $page=0;
                                     $pageNo=1;
+                                    $emptyArray = [];
 
                                     //Check Page
                                     if(isset($_GET['page'])){
@@ -236,24 +238,60 @@
                                     }
 
 
+
                                     //Dynamic Card Views
                                     for ($y=0;$y<10;$y++){
                                         //Next id
                                         $i++;
-                                        //Get specific Row
+
+                                        //Get specific Row - Informations
                                         $companyinfo = DB::table('informations')->where('id',$i)->first();
 
+                                        //Get specific Row - Gallery
+                                        $companyGallery = DB::table('gallery')->where('companyId',$i)->first();
+
+                                        //Get Image Blob
+                                        $companyBlob = $companyGallery->image;
+
+                                        //convert Blob to String for REGEX
+                                        $companyImageString = (string)$companyBlob;
+
+                                        //REGEX Time!
+
+                                        //Check if data is from Web Crawler or User
+                                        //Web Crawler Images
+                                        if (strpos($companyImageString, '<img') !== false) {
+
+                                        }
+                                        else{ //User Images
+
+                                        }
+                                        //Split Images
+                                        $splitImages = explode('<br>',$companyImageString);
+
+                                        //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
+                                        $half=((count($splitImages)-1)/2)+1;
+
+                                        //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
+                                        $half1=count($splitImages)-2;
+
+                                        //Console Debug
+                                        echo '<script>';
+                                        echo 'console.log('. json_encode( $half ) .')';
+                                        echo '</script>';
 
                                         echo '<div class="col-lg-6 col-md-6 mb-30">';
                                             echo '<div class="team team-list">';
                                                 echo '<div class="team-photo">';
                                                     echo '<a href="company?id='.$i.'">';
-                                                        echo '<img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">';
+                                                        echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half1].'" alt="">';
                                                     echo '</a>';
                                                 echo '</div>';
                                                 echo '<div class="team-description">';
                                                      echo '<div class="team-info">';
-                                                        echo '<h5><a href="company?id='.$i.'"> '.$companyinfo->titre.' </a></h5>';
+                                                        echo '<a href="company?id='.$i.'">';
+                                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half].'" alt="">';
+                                                        echo '</a><br>';
                                                         echo '<span>'.$companyinfo->titre.'</span>';
                                                      echo '</div>';
                                                      echo '<div class="team-contact">';
@@ -327,6 +365,7 @@
 
                                                 $next=$pageNo+1;
 
+
                                                 //Page == 1
                                                 if($pageNo==1){
                                                     $class="";
@@ -339,6 +378,7 @@
                                                     echo'<span class="sr-only">Previous</span>';
                                                     echo'</a>';
                                                     echo'</li>';
+
 
                                                     for($i=$pageNo;$i<$pageNo+3;$i++){
 
@@ -363,6 +403,14 @@
                                                     echo'</a>';
                                                     echo'</li>';
 
+                                                    //First Page
+                                                    echo '<li class="page-item">';
+                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
+                                                    echo '<span aria-hidden="true">...</span>';
+                                                    echo '<span class="sr-only">Last</span>';
+                                                    echo '</a>';
+                                                    echo '</li>';
+
                                                     for($i=$pageNo-1;$i<$pageNo+3;$i++){
 
                                                         if($pageNo==$i){
@@ -376,6 +424,17 @@
                                                     }
 
                                                 }
+
+                                            //Last page
+                                                $lastPage=$totalPages;
+
+
+                                        echo '<li class="page-item">';
+                                        echo '<a class="page-link" href="/?page='.$lastPage.'" aria-label="Next">';
+                                        echo '<span aria-hidden="true">...</span>';
+                                        echo '<span class="sr-only">Last</span>';
+                                        echo '</a>';
+                                        echo '</li>';
 
                                                 //Next page
                                         echo '<li class="page-item">';

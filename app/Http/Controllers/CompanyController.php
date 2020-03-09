@@ -51,4 +51,65 @@ class CompanyController extends Controller
             ->with('budget',$budget)
             ->with('expert',$expert);
     }
+
+    public function search(){
+//        $inputs=request()->all();
+//        $budget=$inputs['budget'];
+//        $expertise=$inputs['expertise'];
+//        $ville=$inputs['ville'];
+//
+//
+//        if($budget=null&&$expertise=null){
+//            $cityResearch=DB::table('informations')->where('ville',$ville);
+//        }
+//        if($ville=null && $budget=null){
+//            $expertiseResearch=DB::table('informations')->where('expertise',$expertise);
+//        }
+//        if($expertise=null && $ville=null){
+//
+//            $budgetResearch=DB::table('informations')->where('budget',$budget);
+//        }
+
+
+        return view("search");
+    }
+
+
+    public function postSearch(){
+        $inputs=request()->all();
+        $budget=null;
+        $expertise=null;
+        $ville=null;
+
+        $budget=$inputs['budget'];
+        $expertise=$inputs['expertise'];
+        $ville=$inputs['ville'];
+
+//
+//        if($budget=null&&$expertise=null){
+//            $cityResearch=DB::table('informations')->where('ville',$ville);
+//
+//            return view("search")->with('result',$cityResearch);
+//
+//        }
+//        if($ville=null && $budget=null){
+//            $expertiseResearch=DB::table('informations')->where('expertise',$expertise);
+//            return view("search")->with('result',$expertiseResearch);
+//
+//        }
+//        if($expertise=null && $ville=null){
+//
+//            $budgetResearch=DB::table('informations')->where('budget',$budget);
+//            return view('result')->with('result',$budgetResearch);
+//        }
+
+        $threeSearch=DB::table('informations')
+                        ->where(array(
+                            'ville'=>$ville,
+                            'expertise'=>$expertise,
+                            'budget'=>$budget
+                        ))->get();
+
+        return view("search")->with('result',$threeSearch);
+    }
 }
