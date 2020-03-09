@@ -329,7 +329,7 @@
 
                                                 //Page == 1
                                                 if($pageNo==1){
-
+                                                    $class="";
                                                     $previous=$pageNo-1;
 
                                                     //Previous page
@@ -341,12 +341,20 @@
                                                     echo'</li>';
 
                                                     for($i=$pageNo;$i<$pageNo+3;$i++){
-                                                        echo '<li class="page-item"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
+
+                                                        if($pageNo==$i){
+                                                            $class='active';
+                                                        }
+                                                        else{
+                                                            $class='';
+                                                        }
+
+                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
                                                     }
                                                 }
                                                 else{ //Page > 1
                                                     $previous=$pageNo-1;
-
+                                                    $class="";
                                                     //Previous page
                                                     echo'<li class="page-item">';
                                                     echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
@@ -356,7 +364,15 @@
                                                     echo'</li>';
 
                                                     for($i=$pageNo-1;$i<$pageNo+3;$i++){
-                                                        echo '<li class="page-item"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
+
+                                                        if($pageNo==$i){
+                                                            $class='active';
+                                                        }
+                                                        else{
+                                                            $class='';
+                                                        }
+
+                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
                                                     }
 
                                                 }
