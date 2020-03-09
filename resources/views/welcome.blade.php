@@ -1,6 +1,7 @@
 <?php
 
 
+
 ?>
 
 <!doctype html>
@@ -222,7 +223,7 @@
                                     $i=0;
                                     $page=0;
                                     $pageNo=1;
-                                    $emptyArray = [];
+                                    $splitImages = [];
 
                                     //Check Page
                                     if(isset($_GET['page'])){
@@ -238,17 +239,23 @@
                                     }
 
 
-
                                     //Dynamic Card Views
                                     for ($y=0;$y<10;$y++){
+
                                         //Next id
                                         $i++;
 
                                         //Get specific Row - Informations
                                         $companyinfo = DB::table('informations')->where('id',$i)->first();
+                                        if ($companyinfo===null){
+                                                    break;
+                                        }
 
                                         //Get specific Row - Gallery
                                         $companyGallery = DB::table('gallery')->where('companyId',$i)->first();
+                                        if ($companyGallery===null){
+                                            break;
+                                        }
 
                                         //Get Image Blob
                                         $companyBlob = $companyGallery->image;
@@ -262,22 +269,23 @@
                                         //Web Crawler Images
                                         if (strpos($companyImageString, '<img') !== false) {
 
+                                            //Split Images
+                                            $splitImages = explode('<br>',$companyImageString);
+
+                                            //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
+                                            $half=((count($splitImages)-1)/2)+1;
+
+                                            //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
+                                            $half1=count($splitImages)-2;
                                         }
                                         else{ //User Images
 
                                         }
-                                        //Split Images
-                                        $splitImages = explode('<br>',$companyImageString);
 
-                                        //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
-                                        $half=((count($splitImages)-1)/2)+1;
-
-                                        //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
-                                        $half1=count($splitImages)-2;
 
                                         //Console Debug
                                         echo '<script>';
-                                        echo 'console.log('. json_encode( $half ) .')';
+                                        echo 'console.log('. json_encode( $splitImages ) .')';
                                         echo '</script>';
 
                                         echo '<div class="col-lg-6 col-md-6 mb-30">';
@@ -361,26 +369,51 @@
                                     <ul class="pagination justify-content-center">
 
                                         <?php
-                                                //Dynamic Page Numbers
+                                                //---------------Dynamic Page Numbers-------------
 
                                                 $next=$pageNo+1;
-
+                                                //Last page
+                                                 $lastPage=$totalPages-1;
 
                                                 //Page == 1
                                                 if($pageNo==1){
                                                     $class="";
                                                     $previous=$pageNo-1;
 
+
+                                                    for($i=$pageNo;$i<$pageNo+3;$i++){
+
+                                                        if($pageNo==$i){
+                                                            $class='active';
+                                                        }
+                                                        else{
+                                                            $class='';
+                                                        }
+
+                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
+                                                    }
+                                                }
+                                                else if($pageNo==$lastPage){
+
+                                                    $previous=$pageNo-1;
+                                                    $class="";
                                                     //Previous page
                                                     echo'<li class="page-item">';
-                                                    echo'<a class="page-link" href="/" aria-label="Previous">';
+                                                    echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
                                                     echo'<span aria-hidden="true">&laquo;</span>';
                                                     echo'<span class="sr-only">Previous</span>';
                                                     echo'</a>';
                                                     echo'</li>';
 
+                                                    //First Page
+                                                    echo '<li class="page-item">';
+                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
+                                                    echo '<span aria-hidden="true">...</span>';
+                                                    echo '<span class="sr-only">Last</span>';
+                                                    echo '</a>';
+                                                    echo '</li>';
 
-                                                    for($i=$pageNo;$i<$pageNo+3;$i++){
+                                                    for($i=$pageNo-2;$i<$pageNo+1;$i++){
 
                                                         if($pageNo==$i){
                                                             $class='active';
@@ -425,25 +458,31 @@
 
                                                 }
 
-                                            //Last page
-                                                $lastPage=$totalPages;
 
+                                        // Next page and Last Page
+                                        if ($pageNo==$lastPage){
+                                                    //Don't display anything
+                                        }
+                                        else{
+                                            //Last page;
 
-                                        echo '<li class="page-item">';
-                                        echo '<a class="page-link" href="/?page='.$lastPage.'" aria-label="Next">';
-                                        echo '<span aria-hidden="true">...</span>';
-                                        echo '<span class="sr-only">Last</span>';
-                                        echo '</a>';
-                                        echo '</li>';
+                                            echo '<li class="page-item">';
+                                            echo '<a class="page-link" href="/?page='.$lastPage.'" aria-label="Next">';
+                                            echo '<span aria-hidden="true">...</span>';
+                                            echo '<span class="sr-only">Last</span>';
+                                            echo '</a>';
+                                            echo '</li>';
 
-                                                //Next page
-                                        echo '<li class="page-item">';
-                                        echo '<a class="page-link" href="/?page='.$next.'" aria-label="Next">';
-                                        echo '<span aria-hidden="true">&raquo;</span>';
-                                        echo '<span class="sr-only">Next</span>';
-                                        echo '</a>';
-                                        echo '</li>';
+                                            //Next Page
+                                            echo '<li class="page-item">';
+                                            echo '<a class="page-link" href="/?page='.$next.'" aria-label="Next">';
+                                            echo '<span aria-hidden="true">&raquo;</span>';
+                                            echo '<span class="sr-only">Next</span>';
+                                            echo '</a>';echo '</li>';
 
+                                        }
+
+                                        //-------End of Dynamic Page Numbers-------------
                                         ?>
 
                                         <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>-->

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use DB;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Request;
+use Illuminate\Support\Str;
 
 class CompanyController extends Controller
 {
@@ -52,64 +54,66 @@ class CompanyController extends Controller
             ->with('expert',$expert);
     }
 
-    public function search(){
-//        $inputs=request()->all();
-//        $budget=$inputs['budget'];
-//        $expertise=$inputs['expertise'];
-//        $ville=$inputs['ville'];
-//
-//
-//        if($budget=null&&$expertise=null){
-//            $cityResearch=DB::table('informations')->where('ville',$ville);
-//        }
-//        if($ville=null && $budget=null){
-//            $expertiseResearch=DB::table('informations')->where('expertise',$expertise);
-//        }
-//        if($expertise=null && $ville=null){
-//
-//            $budgetResearch=DB::table('informations')->where('budget',$budget);
-//        }
-
-
+    public function search()
+    {
         return view("search");
     }
 
 
-    public function postSearch(){
-        $inputs=request()->all();
-        $budget=null;
-        $expertise=null;
-        $ville=null;
+    public function postSearch()
+    {
+        $recherche = Request::get('recherche');
+        $expertise =  Request::get('expertise');
+        $ville =  Request::get('ville');
+        $budget =  Request::get('budget');
 
-        $budget=$inputs['budget'];
-        $expertise=$inputs['expertise'];
-        $ville=$inputs['ville'];
-
-//
-//        if($budget=null&&$expertise=null){
+//        if($budget = null && $expertise = null){
 //            $cityResearch=DB::table('informations')->where('ville',$ville);
 //
 //            return view("search")->with('result',$cityResearch);
 //
 //        }
-//        if($ville=null && $budget=null){
+//        if($ville = null && $budget = null){
 //            $expertiseResearch=DB::table('informations')->where('expertise',$expertise);
 //            return view("search")->with('result',$expertiseResearch);
 //
 //        }
-//        if($expertise=null && $ville=null){
+//        if($expertise = null && $ville = null){
 //
 //            $budgetResearch=DB::table('informations')->where('budget',$budget);
 //            return view('result')->with('result',$budgetResearch);
 //        }
 
-        $threeSearch=DB::table('informations')
-                        ->where(array(
-                            'ville'=>$ville,
-                            'expertise'=>$expertise,
-                            'budget'=>$budget
-                        ))->get();
+        $titreList = DB::table('informations')->select('id','titre')->get();
+        $expertiseList = DB::table('informations')->select('expertise')->get();
+        $idList = array();
 
-        return view("search")->with('result',$threeSearch);
+        if($recherche != null){
+            foreach($titreList as $titre){
+                //var_dump(($titre->titre));
+                $contains = Str::contains(strtolower($titre->titre),strtolower($recherche));
+                //var_dump($contains);
+                if($contains == true){
+                    $titreSearch = DB::table('informations')->where('id', $titre->id)->first();
+                    //var_dump($titreSearch);
+                    $idList[] = $titreSearch->id;
+                }
+
+            }
+
+        }
+        if($expertise!= null){
+            $expertiseSearch=DB::table('informations')->where('expertise',$expertise);
+        }
+        if($ville != null){
+            $villeSearch = DB::table('informations')->where('ville',$ville);
+        }
+        if($budget != null){
+            $budgetSearch = DB::table('informations')->where('budget',$budget);
+        }
+
+        //$resultList = DB::table('informations')->whereIn('id', $idList)->get();
+
+        return view("search")->with('result',$idList);
     }
 }

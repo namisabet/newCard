@@ -7,6 +7,7 @@ $var = $_GET['id'];
 }
 
 //Initialize
+$splitImages = [];
 $string="UndefinedString";
 $string1="UndefinedString1";
 $buffer="UndefinedBuffer";
@@ -14,7 +15,7 @@ $buffer1="UndefinedBuffer";
 
 //Ultra REGEX Expertise, Cookie set in CompanyController
 if(!isset($_SESSION["desc1"])) {
-    echo "Cookie named '" . "desc1" . "' is not set!";
+    echo "Session named '" . "desc1" . "' is not set!";
     header("Refresh:0");
 
 } else {
@@ -34,6 +35,45 @@ if(!isset($_SESSION["desc1"])) {
     //echo preg_replace('/[ \t]+/', ' ', $string);
 
 }
+
+
+//Get specific Row - Gallery
+$companyGallery = DB::table('gallery')->where('companyId',$var)->first();
+if ($companyGallery===null){
+    //Get Image Blob
+    $companyBlob = "";
+
+    //convert Blob to String for REGEX
+    $companyImageString = "";
+}
+else{
+    //Get Image Blob
+    $companyBlob = $companyGallery->image;
+
+    //convert Blob to String for REGEX
+    $companyImageString = (string)$companyBlob;
+
+}
+
+//REGEX Time!
+
+//Check if data is from Web Crawler or User
+//Web Crawler Images
+if (strpos($companyImageString, '<img') !== false) {
+
+    //Split Images
+    $splitImages = explode('<br>',$companyImageString);
+
+    //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
+    $half=((count($splitImages)-1)/2)+1;
+
+    //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
+    $half1=count($splitImages)-2;
+}
+else{ //User Images
+
+}
+
 
 ?>
 
@@ -215,7 +255,7 @@ if(!isset($_SESSION["desc1"])) {
     <!--=================================
      page-title-->
 
-    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/03.jpg);">
+    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url({{$splitImages[$half1]}});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -261,7 +301,8 @@ if(!isset($_SESSION["desc1"])) {
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img  class="img-fluid full-width" src="template/images/about/01.jpg">
+                    <!--<img  class="img-fluid full-width" src="template/images/about/01.jpg">-->
+                    <img  class="img-fluid full-width" src="{{$splitImages[$half1]}}">
                 </div>
             </div>
             <div class="row">
@@ -287,17 +328,17 @@ if(!isset($_SESSION["desc1"])) {
 
                 </div>
                 <div class="col-lg-12">
-                    <img src="template/images/03.jpg" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 5){echo $splitImages[$half1-1];} ?>" class="img-fluid full-width mt-20">
                 </div>
             </div>
 
 
             <div class="row">
                 <div class="col-md-6">
-                    <img src="template/images/blog/02.jpg" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 7){echo $splitImages[$half1-2];} ?>" class="img-fluid full-width mt-20">
                 </div>
                 <div class="col-md-6">
-                    <img src="template/images/blog/01.jpg" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 9){echo $splitImages[$half1-3];} ?>" class="img-fluid full-width mt-20">
                 </div>
             </div>
 

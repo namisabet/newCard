@@ -109,8 +109,19 @@
                                 </div>
                             </div>
                         </form>
-                        
                     </div>
+                </div>
+                <div>
+                    @isset( $result ))
+                        result =  yes
+                        id =>
+                        @foreach($result as $r)
+                           <br> {{ $r }}
+                        @endforeach
+
+                    @else
+                        result = none
+                    @endisset
                 </div>
             </div>
         </div>
