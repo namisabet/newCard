@@ -131,51 +131,57 @@ class CompanyController extends Controller
         }
         if($budget != null){
             foreach($budget as $budgetName){
-                var_dump($budgetName);
                 $budgetSearch = DB::table('informations')->where('budget',$budgetName)->get();
                 foreach($budgetSearch as $budgetObj){
                     if($recherche != null){
                         if($expertise != null){
-                            if($budget != null){
-                                if(in_array($villeObj->id,$rechercheIdList)){
-                                    if(in_array($villeObj->id,$expertiseIdList)){
-                                        if(in_array($villeObj->id,$budgetIdList)){
-                                            $villeIdList[] = $villeObj->id;
+                            if($ville != null){
+                                if(in_array($budgetObj->id,$rechercheIdList)){
+                                    if(in_array($budgetObj->id,$expertiseIdList)){
+                                        if(in_array($budgetObj->id,$villeIdList)){
+                                            $budgetIdList[] = $budgetObj->id;
                                         }
                                     }
                                 }
                             }
                             else{
-                                if(in_array($villeObj->id,$rechercheIdList)){
-                                    if(in_array($villeObj->id,$expertiseIdList)){
-                                        $villeIdList[] = $villeObj->id;
+                                if(in_array($budgetObj->id,$rechercheIdList)){
+                                    if(in_array($budgetObj->id,$expertiseIdList)){
+                                        $budgetIdList[] = $budgetObj->id;
                                     }
                                 }
                             }
                         }
-                        else{
-                            if(in_array($villeObj->id,$rechercheIdList)){
-                                $villeIdList[] = $villeObj->id;
-                            }
-                        }
-                    }
-                    elseif($expertise != null){
-                        if($budget != null){
-                            if(in_array($villeObj->id,$expertiseIdList)){
-                                if(in_array($villeObj->id,$budgetIdList)){
-                                    $villeIdList[] = $villeObj->id;
+                        elseif($ville != null){
+                            if(in_array($budgetObj->id,$rechercheIdList)){
+                                if(in_array($budgetObj->id,$villeIdList)){
+                                    $budgetIdList[] = $budgetObj->id;
                                 }
                             }
                         }
                         else{
-                            if(in_array($villeObj->id,$expertiseIdList)){
-                                $villeIdList[] = $villeObj->id;
+                            if(in_array($budgetObj->id,$rechercheIdList)){
+                                $budgetIdList[] = $budgetObj->id;
                             }
                         }
                     }
-                    elseif($budget != null){
-                        if(in_array($villeObj->id,$budgetIdList)){
-                            $villeIdList[] = $villeObj->id;
+                    elseif($expertise != null){
+                        if($ville != null){
+                            if(in_array($budgetObj->id,$expertiseIdList)){
+                                if(in_array($budgetObj->id,$villeIdList)){
+                                    $budgetIdList[] = $budgetObj->id;
+                                }
+                            }
+                        }
+                        else{
+                            if(in_array($budgetObj->id,$expertiseIdList)){
+                                $budgetIdList[] = $budgetObj->id;
+                            }
+                        }
+                    }
+                    elseif($ville != null){
+                        if(in_array($budgetObj->id,$villeIdList)){
+                            $budgetIdList[] = $budgetObj->id;
                         }
                     }
                     else
@@ -184,10 +190,21 @@ class CompanyController extends Controller
             }
         }
 
+        if($budget != null){
+            $finalIdList = $budgetIdList;
+        }
+        elseif($ville!= null){
+            $finalIdList = $villeIdList;
+        }
+        elseif($expertise != null){
+            $finalIdList = $expertiseIdList;
+        }
+        elseif($recherche != null){
+            $finalIdList = $rechercheIdList;
+        }
         //$resultList = DB::table('informations')->whereIn('id', $idList)->get();
 
-        if($recherche != null)
-            $finalIdList =
+
 
         $idList = array_unique($finalIdList);
         sort($finalIdList);

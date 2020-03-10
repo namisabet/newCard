@@ -120,7 +120,42 @@ class HomeController extends Controller
     }
     public function postUpload()
     {
-
+        //Image Titre
+        if(isset($_FILES['imageTitre'])){
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($file_tmp,"public/companyImage/".$file_name);
+        }
+        //Image Principal
+        if(isset($_FILES['imagePrincipal'])){
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($file_tmp,"public/companyImage/".$file_name);
+        }
+        //Image 1
+        if(isset($_FILES['image1'])){
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($file_tmp,"public/companyImage/".$file_name);
+        }
+        //Image 2
+        if(isset($_FILES['image2'])){
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($file_tmp,"public/companyImage/".$file_name);
+        }
+        //Image 3
+        if(isset($_FILES['image3'])){
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($file_tmp,"public/companyImage/".$file_name);
+        }
+        //Image 4
+        if(isset($_FILES['image4'])){
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            move_uploaded_file($file_tmp,"public/companyImage/".$file_name);
+        }
 
 
 
@@ -130,24 +165,11 @@ class HomeController extends Controller
 
         $inputs = request()->all();
 
-        $companyinfo->titre = $inputs['titre'];
-        $companyinfo->link = $inputs['link'];
-        $companyinfo->email = $inputs['emailc'];
-        $companyinfo->telephone = $inputs['phonec'];
-        $companyinfo->description = $inputs['description'];
-        $companyinfo->expertise = $inputs['expertise'];
-        $companyinfo->ville = $inputs['ville'];
-        $companyinfo->budget = $inputs['budget'];
+        //$companyinfo->titre = $inputs['titre'];
 
-        $companyinfo->save();
 
-        return view('Home')->with('titre',$companyinfo->titre)
-            ->with('link',$companyinfo->link)
-            ->with('email',$companyinfo->email)
-            ->with('phone',$companyinfo->telephone)
-            ->with('desc',$companyinfo->description)
-            ->with('ville',$companyinfo->expertise)
-            ->with('budget',$companyinfo->ville)
-            ->with('expert',$companyinfo->budget);
+        //$companyinfo->save();
+
+        return view('Home')->with('titre',$companyinfo->titre);
     }
 }

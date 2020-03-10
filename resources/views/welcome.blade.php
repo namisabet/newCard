@@ -188,8 +188,8 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="page-title-name text-left">
-                                    <h1>[Titre du Site Web]</h1>
-                                    <p class="desc">Positive pleasure-oriented goals are much more powerful motivators than negative fear-based ones. Although each is successful separately, the right combination of both is the most powerful motivational force known to humankind.</p>
+                                    <h1>Agences Web du Québec</h1>
+                                    <p class="desc">Trouvez une agence Web pour votre prochain projet</p>
                                 </div>
 
                             </div>
@@ -509,9 +509,9 @@
                                 <div class="footer-useful-link footer-hedding">
                                     <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Service</a></li>
+                                        <li><a href="/">Home Page</a></li>
+                                        <li><a href="/home">My Profile</a></li>
+                                        <li><a href="/search">Search</a></li>
 
                                     </ul>
                                 </div>

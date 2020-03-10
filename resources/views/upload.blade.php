@@ -99,9 +99,9 @@ footer -->
                     <div class="footer-useful-link footer-hedding">
                         <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Service</a></li>
+                            <li><a href="/">Home Page</a></li>
+                            <li><a href="/home">My Profile</a></li>
+                            <li><a href="/search">Search</a></li>
 
                         </ul>
                     </div>
