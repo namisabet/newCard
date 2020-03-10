@@ -23,5 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company', 'CompanyController@index')->name('company');
 Route::get('/edit', 'HomeController@edit')->name('edit');
 Route::post('/edit', 'HomeController@postEdit')->name('postEdit');
+Route::get('/upload', 'HomeController@upload')->name('upload');
+Route::post('/upload', 'HomeController@postUpload')->name('postUpload');
 Route::get('/search','CompanyController@search')->name('search');
 Route::post('/search','CompanyController@postSearch')->name('postSearch');

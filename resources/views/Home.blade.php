@@ -30,6 +30,11 @@
                                 Edit
                             </button>
                         </form>
+                        <form action="upload" style="margin-top: 10px">
+                            <button type="submit" class="btn btn-primary">
+                                Upload Image
+                            </button>
+                        </form>
 
                 </div>
             </div>

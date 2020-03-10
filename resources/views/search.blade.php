@@ -33,7 +33,7 @@
                                 <label for="expertise" class="col-md-4 control-label">Expertise</label>
 
                                 <div class="col-md-6">
-                                    <select id="expertise" name="expertise" multiple class="selectpicker" data-width="100%" >
+                                    <select id="expertise" name="expertise[]" multiple class="selectpicker" data-width="100%" >
                                         @php
                                             $expertiseList = array("Architecture d'information","Assurance qualité","Conception","Contenu","Design",
                                                 "Design interactif","Expérience utilisateur","Gestion","Gestionnaires de contenu","Marketing",
@@ -55,13 +55,13 @@
                                 <label for="ville" class="col-md-4 control-label">Ville</label>
 
                                 <div class="col-md-6">
-                                    <select id="ville" name="ville" multiple class="selectpicker" data-width="100%">
+                                    <select id="ville" name="ville[]" multiple class="selectpicker" data-width="100%">
 
                                         @php
                                             $villeList = array("Montréal","Québec","Gatineau","Sherbrooke","Trois-Rivières",
                                                 "Laval","Rimouski","Saguenay","Terrebonne","Lévis",
                                                 "Saint-Jean-sur-Richelieu","Repentigny","Drummondville","Saint-Jérôme","Granby",
-                                                "Granby","Shawinigan","Val d'Or","Rouyn-Noranda","St-George", "Thetford Mines");
+                                                "Granby","Shawinigan","Val d'Or","Rouyn-Noranda","St-Georges", "Thetford Mines");
                                         @endphp
                                         @foreach($villeList as $villeName)
                                                 <option value='{{$villeName}}'>{{$villeName}}</option>
@@ -80,17 +80,17 @@
                                 <label for="budget" class="col-md-4 control-label">Budget</label>
 
                                 <div class="col-md-6">
-                                    <select name="budget" id="budget" class="selectpicker" multiple data-width="100%" data-live-search="false">
+                                    <select name="budget[]" id="budget" class="selectpicker" multiple data-width="100%" data-live-search="false">
 
-                                        <option value="0 ~ 3,000 $">0 ~ 3,000 $</option>
+                                        <option value="- de 3,000 $">0 ~ 3,000 $</option>
 
-                                        <option value="3,000 ~ 10,000 $">3,000 ~ 10,000 $</option>
+                                        <option value="3,000$ à 10,000$">3,000 ~ 10,000 $</option>
 
-                                        <option value="10,000 ~ 25,000 $">10,000 ~ 25,000 $</option>
+                                        <option value="10,000$ à 25,000$">10,000 ~ 25,000 $</option>
 
-                                        <option value="25,000 ~ 50,000 $">25,000 ~ 50,000 $</option>
+                                        <option value="25,000$ à 50,000$">25,000 ~ 50,000 $</option>
 
-                                        <option value="50,000 + $">50,000 + $</option>
+                                        <option value="50,000$ et +">50,000 + $</option>
 
                                     </select>
 

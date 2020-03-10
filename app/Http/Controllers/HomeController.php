@@ -105,4 +105,58 @@ class HomeController extends Controller
             ->with('budget',$companyinfo->ville)
             ->with('expert',$companyinfo->budget);
     }
+    // Upload/Get Images
+    public function upload()
+    {
+        $id = Auth::id();
+        $user = Auth::user();
+
+        $companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
+
+        $titre = $companyinfo->titre;
+        $link = $companyinfo->link;
+        $email = $companyinfo->email;
+        $phone = $companyinfo->telephone;
+        $desc = $companyinfo->description;
+        $ville = $companyinfo->ville;
+        $budget = $companyinfo->budget;
+        $expert = $companyinfo->expertise;
+
+        return view('upload')->with('titre',$titre)
+            ->with('link',$link)
+            ->with('email',$email)
+            ->with('phone',$phone)
+            ->with('desc',$desc)
+            ->with('ville',$ville)
+            ->with('budget',$budget)
+            ->with('expert',$expert);
+    }
+    public function postUpload()
+    {
+        $user = Auth::user();
+
+        $companyinfo = Informations::find($user->informationId);
+
+        $inputs = request()->all();
+
+        $companyinfo->titre = $inputs['titre'];
+        $companyinfo->link = $inputs['link'];
+        $companyinfo->email = $inputs['emailc'];
+        $companyinfo->telephone = $inputs['phonec'];
+        $companyinfo->description = $inputs['description'];
+        $companyinfo->expertise = $inputs['expertise'];
+        $companyinfo->ville = $inputs['ville'];
+        $companyinfo->budget = $inputs['budget'];
+
+        $companyinfo->save();
+
+        return view('Home')->with('titre',$companyinfo->titre)
+            ->with('link',$companyinfo->link)
+            ->with('email',$companyinfo->email)
+            ->with('phone',$companyinfo->telephone)
+            ->with('desc',$companyinfo->description)
+            ->with('ville',$companyinfo->expertise)
+            ->with('budget',$companyinfo->ville)
+            ->with('expert',$companyinfo->budget);
+    }
 }

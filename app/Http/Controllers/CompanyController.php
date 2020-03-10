@@ -67,53 +67,87 @@ class CompanyController extends Controller
         $ville =  Request::get('ville');
         $budget =  Request::get('budget');
 
-//        if($budget = null && $expertise = null){
-//            $cityResearch=DB::table('informations')->where('ville',$ville);
-//
-//            return view("search")->with('result',$cityResearch);
-//
-//        }
-//        if($ville = null && $budget = null){
-//            $expertiseResearch=DB::table('informations')->where('expertise',$expertise);
-//            return view("search")->with('result',$expertiseResearch);
-//
-//        }
-//        if($expertise = null && $ville = null){
-//
-//            $budgetResearch=DB::table('informations')->where('budget',$budget);
-//            return view('result')->with('result',$budgetResearch);
-//        }
-
         $titreList = DB::table('informations')->select('id','titre')->get();
-        $expertiseList = DB::table('informations')->select('expertise')->get();
-        $idList = array();
+        $expertiseList = DB::table('informations')->select('id','expertise')->get();
+        $rechercheIdList = array();
+        $expertiseIdList = array();
+        $villeIdList = array();
+        $budgetIdList = array();
+        $finalIdList = array();
 
         if($recherche != null){
             foreach($titreList as $titre){
-                //var_dump(($titre->titre));
                 $contains = Str::contains(strtolower($titre->titre),strtolower($recherche));
-                //var_dump($contains);
                 if($contains == true){
                     $titreSearch = DB::table('informations')->where('id', $titre->id)->first();
-                    //var_dump($titreSearch);
-                    $idList[] = $titreSearch->id;
+                    $rechercheIdList[] = $titreSearch->id;
                 }
-
             }
-
         }
         if($expertise!= null){
-            $expertiseSearch=DB::table('informations')->where('expertise',$expertise);
+            foreach($expertise as $expertiseName){
+                foreach($expertiseList as $expertiseObj){
+                    $contains = Str::contains(strtolower($expertiseObj->expertise),strtolower($expertiseName));
+                    if($contains == true){
+                        $expertiseSearch = DB::table('informations')->where('id', $expertiseObj->id)->first();
+                        if($recherche != null){
+                            if(in_array($expertiseSearch->id,$rechercheIdList)){
+                                $expertiseIdList[] = $expertiseSearch->id;
+                            }
+                        }
+                        else
+                            $expertiseIdList[] = $expertiseSearch->id;
+                    }
+                }
+            }
         }
         if($ville != null){
-            $villeSearch = DB::table('informations')->where('ville',$ville);
+            foreach($ville as $villeName) {
+                $villeSearch = DB::table('informations')->where('ville', $villeName)->get();
+                foreach ($villeSearch as $villeObj) {
+                    if($recherche != null){
+                        if($expertise != null){
+                            
+                        }
+                        else{
+                            if(in_array($villeObj->id,$rechercheIdList)){
+                                $villeIdList[] = $villeObj->id;
+                            }
+                            else{
+                                $villeIdList[] = $villeObj->id;
+                            }
+                        }
+                    }
+                    elseif($expertise != null){
+                        if(in_array($villeObj->id,$expertiseIdList)){
+                            $villeIdList[] = $villeObj->id;
+                        }
+                        else{
+                            $villeIdList[] = $villeObj->id;
+                        }
+                    }
+                    else
+                        $idList[] = $villeObj->id;
+                }
+            }
         }
         if($budget != null){
-            $budgetSearch = DB::table('informations')->where('budget',$budget);
+            foreach($budget as $budgetName){
+                var_dump($budgetName);
+                $budgetSearch = DB::table('informations')->where('budget',$budgetName)->get();
+                foreach($budgetSearch as $budgetObj){
+                    $idList[] = $budgetObj->id;
+                }
+            }
         }
 
         //$resultList = DB::table('informations')->whereIn('id', $idList)->get();
 
-        return view("search")->with('result',$idList);
+
+
+        $idList = array_unique($finalIdList);
+        sort($finalIdList);
+
+        return view("search")->with('result',$finalIdList);
     }
 }
