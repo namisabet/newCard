@@ -107,13 +107,14 @@ class CompanyController extends Controller
                 foreach ($villeSearch as $villeObj) {
                     if($recherche != null){
                         if($expertise != null){
-                            
+                            if(in_array($villeObj->id,$rechercheIdList)){
+                                if(in_array($villeObj->id,$expertiseIdList)){
+                                    $villeIdList[] = $villeObj->id;
+                                }
+                            }
                         }
                         else{
                             if(in_array($villeObj->id,$rechercheIdList)){
-                                $villeIdList[] = $villeObj->id;
-                            }
-                            else{
                                 $villeIdList[] = $villeObj->id;
                             }
                         }
@@ -122,12 +123,9 @@ class CompanyController extends Controller
                         if(in_array($villeObj->id,$expertiseIdList)){
                             $villeIdList[] = $villeObj->id;
                         }
-                        else{
-                            $villeIdList[] = $villeObj->id;
-                        }
                     }
                     else
-                        $idList[] = $villeObj->id;
+                        $villeIdList[] = $villeObj->id;
                 }
             }
         }
@@ -136,14 +134,60 @@ class CompanyController extends Controller
                 var_dump($budgetName);
                 $budgetSearch = DB::table('informations')->where('budget',$budgetName)->get();
                 foreach($budgetSearch as $budgetObj){
-                    $idList[] = $budgetObj->id;
+                    if($recherche != null){
+                        if($expertise != null){
+                            if($budget != null){
+                                if(in_array($villeObj->id,$rechercheIdList)){
+                                    if(in_array($villeObj->id,$expertiseIdList)){
+                                        if(in_array($villeObj->id,$budgetIdList)){
+                                            $villeIdList[] = $villeObj->id;
+                                        }
+                                    }
+                                }
+                            }
+                            else{
+                                if(in_array($villeObj->id,$rechercheIdList)){
+                                    if(in_array($villeObj->id,$expertiseIdList)){
+                                        $villeIdList[] = $villeObj->id;
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            if(in_array($villeObj->id,$rechercheIdList)){
+                                $villeIdList[] = $villeObj->id;
+                            }
+                        }
+                    }
+                    elseif($expertise != null){
+                        if($budget != null){
+                            if(in_array($villeObj->id,$expertiseIdList)){
+                                if(in_array($villeObj->id,$budgetIdList)){
+                                    $villeIdList[] = $villeObj->id;
+                                }
+                            }
+                        }
+                        else{
+                            if(in_array($villeObj->id,$expertiseIdList)){
+                                $villeIdList[] = $villeObj->id;
+                            }
+                        }
+                    }
+                    elseif($budget != null){
+                        if(in_array($villeObj->id,$budgetIdList)){
+                            $villeIdList[] = $villeObj->id;
+                        }
+                    }
+                    else
+                        $budgetIdList[] = $budgetObj->id;
                 }
             }
         }
 
         //$resultList = DB::table('informations')->whereIn('id', $idList)->get();
 
-
+        if($recherche != null)
+            $finalIdList =
 
         $idList = array_unique($finalIdList);
         sort($finalIdList);

@@ -13,11 +13,55 @@
                         <form class="form-horizontal" method="POST" action="{{ route('postUpload') }}">
 
                             <!-- Image Titre -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Image Titre</label>
+
+                                <div class="col-md-6">
+                                    <input id="titre" type="file"  name="imageTitre"  required autofocus>
+                                </div>
+                            </div>
                             <!-- Image Card/Main -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Image Principal</label>
+
+                                <div class="col-md-6">
+                                    <input id="titre" type="file"  name="imagePrincipal"  required autofocus>
+                                </div>
+                            </div>
                             <!-- Image 1 -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Image 1</label>
+
+                                <div class="col-md-6">
+                                    <input id="titre" type="file"  name="image1" >
+                                </div>
+                            </div>
                             <!-- Image 2 -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Image 2</label>
+
+                                <div class="col-md-6">
+                                    <input id="titre" type="file"  name="image2" >
+                                </div>
+                            </div>
                             <!-- Image 3 -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Image 3</label>
+
+                                <div class="col-md-6">
+                                    <input id="titre" type="file"  name="image3"  >
+                                </div>
+                            </div>
                             <!-- Image 4 -->
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="titre" class="col-md-4 control-label">Image 4</label>
+
+                                <div class="col-md-6">
+                                    <input id="titre" type="file"  name="image4"  >
+                                </div>
+                            </div>
+
+
 
                             <!-- Submit/Cancel-->
                             <div class="form-group" style="align-content: center">
@@ -48,7 +92,7 @@
     <!--=================================
 footer -->
 
-    <footer class="footer page-section-pt black-bg">
+    <footer class="footer page-section-pt black-bg" style="margin-top: 80px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-sm-6 sm-mb-30">

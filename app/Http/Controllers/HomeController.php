@@ -114,25 +114,16 @@ class HomeController extends Controller
         $companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
 
         $titre = $companyinfo->titre;
-        $link = $companyinfo->link;
-        $email = $companyinfo->email;
-        $phone = $companyinfo->telephone;
-        $desc = $companyinfo->description;
-        $ville = $companyinfo->ville;
-        $budget = $companyinfo->budget;
-        $expert = $companyinfo->expertise;
 
-        return view('upload')->with('titre',$titre)
-            ->with('link',$link)
-            ->with('email',$email)
-            ->with('phone',$phone)
-            ->with('desc',$desc)
-            ->with('ville',$ville)
-            ->with('budget',$budget)
-            ->with('expert',$expert);
+        return view('upload')->with('titre',$titre);
+
     }
     public function postUpload()
     {
+
+
+
+
         $user = Auth::user();
 
         $companyinfo = Informations::find($user->informationId);
