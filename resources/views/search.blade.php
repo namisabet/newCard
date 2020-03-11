@@ -112,16 +112,138 @@
                     </div>
                 </div>
                 <div>
-                    @isset( $result ))
-                        result =  yes
-                        id =>
-                        @foreach($result as $r)
-                           <br> {{ $r }}
-                        @endforeach
+                <?php
+                    $result = [];
 
-                    @else
-                        result = none
-                    @endisset
+                    if(isset($_SESSION['result'])){
+                        $result=$_SESSION["result"];
+                    }
+                    else {
+                        //Console Debug
+                        echo '<script>';
+                        echo 'console.log('. json_encode( $result ) .')';
+                        echo '</script>';
+                    }
+
+                        //Dynamic Card Views
+                        foreach ($result as $r){
+
+
+                        //Get specific Row - Informations
+                        $companyinfo = DB::table('informations')->where('id',$r)->first();
+                        if ($companyinfo===null){
+                        continue;
+                        }
+                        else{
+                        $exist=true;
+                        }
+
+                        //Get specific Row - Gallery
+                        $companyGallery = DB::table('gallery')->where('companyId',$r)->first();
+                        if ($companyGallery===null){
+                        $exist=false;
+                        }
+                        else{
+                        $exist=true;
+                        }
+
+
+                        //REGEX Time!
+
+                        //Check if data is from Web Crawler or User
+                        //Web Crawler Images
+                        if ($r < 909 && $exist==true) {
+                        //Get Image Blob
+                        $companyBlob = $companyGallery->image;
+
+                        //convert Blob to String for REGEX
+                        $companyImageString = (string)$companyBlob;
+
+                        //Split Images
+                        $splitImages = explode('<br>',$companyImageString);
+
+                        //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
+                        $half=((count($splitImages)-1)/2)+1;
+
+                        //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
+                        $half1=count($splitImages)-2;
+                        }
+                        else{ //User Images
+
+                        $companyinfo = DB::table('informations')->where('id',$r)->first();
+                        if ($companyinfo->titre==null){
+                        continue;
+                        }
+                        else{
+                        $exist=true;
+                        }
+
+                        if ($companyGallery===null || $exist==false){
+                        $exist=false;
+                        }
+                        else
+                        {
+
+                        $exist=true;
+                        $companyGallery1 = DB::table('gallery')->where('companyId',$r)->get();
+                        $x=0;
+
+                        foreach($companyGallery1 as $image){
+                        $companyBlob = $image->image;
+
+                        //Array
+                        $array[$x] = $companyBlob;
+                        $x++;
+                        }
+
+                        $splitImages=$array;
+                        $half1=0;
+                        $half=1;
+
+                        }
+
+
+                        }
+
+                        //Console Debug
+                        echo '<script>';
+                            echo 'console.log('. json_encode( $r ) .')';
+                            echo '</script>';
+
+                        try{
+                        if($exist==true){// Print Card
+
+                        echo '<div class="col-lg-6 col-md-6 mb-30">';
+                            echo '<div class="team team-list">';
+                                echo '<div class="team-photo">';
+                                    echo '<a href="company?id='.$r.'">';
+                                        echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half1].'" alt="" >';
+                                        echo '</a>';
+                                    echo '</div>';
+                                echo '<div class="team-description">';
+                                    echo '<div class="team-info">';
+                                        echo '<a href="company?id='.$r.'">';
+                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half].'" alt="" style="max-height:50px" >';
+                                            echo '</a><br>';
+                                        echo '<span>'.$companyinfo->titre.'</span>';
+                                        echo '</div>';
+                                    echo '<div class="team-contact">';
+                                        echo '<span class="call"> '.$companyinfo->ville.' </span>';
+                                        echo '<span class="email">'.$companyinfo->budget.'</span>';
+                                        echo '<p  class="desc" style="font-size: 12px">'.$companyinfo->description.'</p>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+
+
+                        }
+
+                        }catch(Exception $e){}
+                        }
+
+?>
+
                 </div>
             </div>
         </div>

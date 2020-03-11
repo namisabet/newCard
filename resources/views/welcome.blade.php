@@ -224,6 +224,10 @@
                                     $page=0;
                                     $pageNo=1;
                                     $splitImages = [];
+                                    $array = [];
+                                    $exist = true;
+                                    $half="";
+                                    $half1=0;
 
                                     //Check Page
                                     if(isset($_GET['page'])){
@@ -248,26 +252,32 @@
                                         //Get specific Row - Informations
                                         $companyinfo = DB::table('informations')->where('id',$i)->first();
                                         if ($companyinfo===null){
-                                                    break;
+                                                    continue;
+                                        }
+                                        else{
+                                            $exist=true;
                                         }
 
                                         //Get specific Row - Gallery
                                         $companyGallery = DB::table('gallery')->where('companyId',$i)->first();
                                         if ($companyGallery===null){
-                                            break;
+                                            $exist=false;
+                                        }
+                                        else{
+                                            $exist=true;
                                         }
 
-                                        //Get Image Blob
-                                        $companyBlob = $companyGallery->image;
-
-                                        //convert Blob to String for REGEX
-                                        $companyImageString = (string)$companyBlob;
 
                                         //REGEX Time!
 
                                         //Check if data is from Web Crawler or User
                                         //Web Crawler Images
-                                        if (strpos($companyImageString, '<img') !== false) {
+                                        if ($i < 909 && $exist==true) {
+                                            //Get Image Blob
+                                            $companyBlob = $companyGallery->image;
+
+                                            //convert Blob to String for REGEX
+                                            $companyImageString = (string)$companyBlob;
 
                                             //Split Images
                                             $splitImages = explode('<br>',$companyImageString);
@@ -280,36 +290,76 @@
                                         }
                                         else{ //User Images
 
+                                            $companyinfo = DB::table('informations')->where('id',$i)->first();
+                                            if ($companyinfo->titre==null){
+                                                continue;
+                                            }
+                                            else{
+                                                $exist=true;
+                                            }
+
+                                            if ($companyGallery===null || $exist==false){
+                                                $exist=false;
+                                            }
+                                            else
+                                                {
+
+                                                    $exist=true;
+                                            $companyGallery1 = DB::table('gallery')->where('companyId',$i)->get();
+                                            $x=0;
+
+                                            foreach($companyGallery1 as $image){
+                                                $companyBlob = $image->image;
+
+                                                //Array
+                                                $array[$x] = $companyBlob;
+                                                $x++;
+                                                }
+
+                                            $splitImages=$array;
+                                            $half1=0;
+                                            $half=1;
+
+                                            }
+
+
                                         }
 
-
                                         //Console Debug
-                                        #echo '<script>';
-                                        #echo 'console.log('. json_encode( $splitImages ) .')';
-                                        #echo '</script>';
+                                        echo '<script>';
+                                        echo 'console.log('. json_encode( $total ) .')';
+                                        echo '</script>';
 
-                                        echo '<div class="col-lg-6 col-md-6 mb-30">';
+                                    try{
+                                        if($exist==true){// Print Card
+
+                                            echo '<div class="col-lg-6 col-md-6 mb-30">';
                                             echo '<div class="team team-list">';
-                                                echo '<div class="team-photo">';
-                                                    echo '<a href="company?id='.$i.'">';
-                                                        echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half1].'" alt="">';
-                                                    echo '</a>';
-                                                echo '</div>';
-                                                echo '<div class="team-description">';
-                                                     echo '<div class="team-info">';
-                                                        echo '<a href="company?id='.$i.'">';
-                                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half].'" alt="">';
-                                                        echo '</a><br>';
-                                                        echo '<span>'.$companyinfo->titre.'</span>';
-                                                     echo '</div>';
-                                                     echo '<div class="team-contact">';
-                                                            echo '<span class="call"> '.$companyinfo->ville.' </span>';
-                                                            echo '<span class="email">'.$companyinfo->budget.'</span>';
-                                                            echo '<p  class="desc" style="font-size: 12px">'.$companyinfo->description.'</p>';
-                                                     echo '</div>';
-                                                echo '</div>';
+                                            echo '<div class="team-photo">';
+                                            echo '<a href="company?id='.$i.'">';
+                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half1].'" alt="" >';
+                                            echo '</a>';
                                             echo '</div>';
-                                        echo '</div>';
+                                            echo '<div class="team-description">';
+                                            echo '<div class="team-info">';
+                                            echo '<a href="company?id='.$i.'">';
+                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half].'" alt="" style="max-height:50px" >';
+                                            echo '</a><br>';
+                                            echo '<span>'.$companyinfo->titre.'</span>';
+                                            echo '</div>';
+                                            echo '<div class="team-contact">';
+                                            echo '<span class="call"> '.$companyinfo->ville.' </span>';
+                                            echo '<span class="email">'.$companyinfo->budget.'</span>';
+                                            echo '<p  class="desc" style="font-size: 12px">'.$companyinfo->description.'</p>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '</div>';
+
+
+                                        }
+
+                                        }catch(Exception $e){}
                                     }
 
                                 /* Dynamic Card Template
@@ -373,7 +423,7 @@
 
                                                 $next=$pageNo+1;
                                                 //Last page
-                                                 $lastPage=$totalPages-1;
+                                                 $lastPage=$totalPages;
 
                                                 //Page == 1
                                                 if($pageNo==1){
@@ -414,6 +464,37 @@
                                                     echo '</li>';
 
                                                     for($i=$pageNo-2;$i<$pageNo+1;$i++){
+
+                                                        if($pageNo==$i){
+                                                            $class='active';
+                                                        }
+                                                        else{
+                                                            $class='';
+                                                        }
+
+                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
+                                                    }
+                                                }
+                                                else if ($pageNo==$lastPage-1){
+                                                    $previous=$pageNo-1;
+                                                    $class="";
+                                                    //Previous page
+                                                    echo'<li class="page-item">';
+                                                    echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
+                                                    echo'<span aria-hidden="true">&laquo;</span>';
+                                                    echo'<span class="sr-only">Previous</span>';
+                                                    echo'</a>';
+                                                    echo'</li>';
+
+                                                    //First Page
+                                                    echo '<li class="page-item">';
+                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
+                                                    echo '<span aria-hidden="true">...</span>';
+                                                    echo '<span class="sr-only">Last</span>';
+                                                    echo '</a>';
+                                                    echo '</li>';
+
+                                                    for($i=$pageNo-1;$i<$pageNo+2;$i++){
 
                                                         if($pageNo==$i){
                                                             $class='active';

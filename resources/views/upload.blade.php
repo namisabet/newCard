@@ -10,54 +10,72 @@
                     <div class="panel-heading">Upload Images</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('postUpload') }}">
-
+                        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('postUpload') }}">
+                            {{ csrf_field() }}
                             <!-- Image Titre -->
-                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
-                                <label for="titre" class="col-md-4 control-label">Image Titre</label>
 
+                            <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
+                                <label for="imageTitre" class="col-md-4 control-label">Image Titre</label>
+                                {{--isset( $imageSet )
+
+                                    @foreach($imageSet as $image)
+                                        <img src="{{$image->image}}" alt="image" width="50px" height="50px">
+                                        {{$imageTitre = substr($image->image, strpos($image->image, "image") + 5)}}
+                                        {{$imageTitre2 = substr($imageTitre, 0, strpos($imageTitre, "."))}}
+                                        {{$imageTitre2}}
+
+                                    @endforeach
+                                @else
+                                @endisset--}}
+                                <div class="col-md-2">
+                                    <?php
+                                        if(isset($imageTitre)){
+                                            echo "<img src='$imageTitre' alt='image' width='50px' height='50px'>";
+                                        }
+                                    ?>
+                                </div>
                                 <div class="col-md-6">
-                                    <input id="titre" type="file"  name="imageTitre"  required autofocus>
+                                    <input id="imageTitre" type="file"  name="imageTitre"  required autofocus>
                                 </div>
                             </div>
                             <!-- Image Card/Main -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
-                                <label for="titre" class="col-md-4 control-label">Image Principal</label>
+                                <label for="imagePrincipal" class="col-md-4 control-label">Image Principal</label>
 
                                 <div class="col-md-6">
-                                    <input id="titre" type="file"  name="imagePrincipal"  required autofocus>
+                                    <input id="imagePrincipal" type="file"  name="imagePrincipal"  required autofocus>
                                 </div>
                             </div>
                             <!-- Image 1 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
-                                <label for="titre" class="col-md-4 control-label">Image 1</label>
+                                <label for="image1" class="col-md-4 control-label">Image 1</label>
 
                                 <div class="col-md-6">
-                                    <input id="titre" type="file"  name="image1" >
+                                    <input id="image1" type="file"  name="image1" >
                                 </div>
                             </div>
                             <!-- Image 2 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
-                                <label for="titre" class="col-md-4 control-label">Image 2</label>
+                                <label for="image2" class="col-md-4 control-label">Image 2</label>
 
                                 <div class="col-md-6">
-                                    <input id="titre" type="file"  name="image2" >
+                                    <input id="image2" type="file"  name="image2" >
                                 </div>
                             </div>
                             <!-- Image 3 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
-                                <label for="titre" class="col-md-4 control-label">Image 3</label>
+                                <label for="image3" class="col-md-4 control-label">Image 3</label>
 
                                 <div class="col-md-6">
-                                    <input id="titre" type="file"  name="image3"  >
+                                    <input id="image3" type="file"  name="image3"  >
                                 </div>
                             </div>
                             <!-- Image 4 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
-                                <label for="titre" class="col-md-4 control-label">Image 4</label>
+                                <label for="image4" class="col-md-4 control-label">Image 4</label>
 
                                 <div class="col-md-6">
-                                    <input id="titre" type="file"  name="image4"  >
+                                    <input id="image4" type="file"  name="image4"  >
                                 </div>
                             </div>
 

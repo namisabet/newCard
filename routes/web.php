@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
 
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/company', 'CompanyController@index')->name('company');
@@ -27,3 +31,4 @@ Route::get('/upload', 'HomeController@upload')->name('upload');
 Route::post('/upload', 'HomeController@postUpload')->name('postUpload');
 Route::get('/search','CompanyController@search')->name('search');
 Route::post('/search','CompanyController@postSearch')->name('postSearch');
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

@@ -12,6 +12,10 @@ $string="UndefinedString";
 $string1="UndefinedString1";
 $buffer="UndefinedBuffer";
 $buffer1="UndefinedBuffer";
+$array = [];
+$exist = true;
+$half="";
+$half1=0;
 
 //Ultra REGEX Expertise, Cookie set in CompanyController
 if(!isset($_SESSION["desc1"])) {
@@ -46,20 +50,12 @@ if ($companyGallery===null){
     //convert Blob to String for REGEX
     $companyImageString = "";
 }
-else{
+else if($var < 909){
     //Get Image Blob
     $companyBlob = $companyGallery->image;
 
     //convert Blob to String for REGEX
     $companyImageString = (string)$companyBlob;
-
-}
-
-//REGEX Time!
-
-//Check if data is from Web Crawler or User
-//Web Crawler Images
-if (strpos($companyImageString, '<img') !== false) {
 
     //Split Images
     $splitImages = explode('<br>',$companyImageString);
@@ -69,10 +65,38 @@ if (strpos($companyImageString, '<img') !== false) {
 
     //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
     $half1=count($splitImages)-2;
+
 }
 else{ //User Images
 
+    if ($companyGallery===null){
+        //Get Image Blob
+        $companyBlob = "";
+
+        //convert Blob to String for REGEX
+        $companyImageString = "";
+    }
+    else
+    {
+        $companyGallery1 = DB::table('gallery')->where('companyId',$var)->get();
+        $x=0;
+
+        foreach($companyGallery1 as $image){
+            $companyBlob = $image->image;
+
+            //Array
+            $array[$x] = $companyBlob;
+            $x++;
+        }
+
+        $splitImages=$array;
+        $half1=0;
+        $half=1;
+
+    }
 }
+
+
 
 
 ?>

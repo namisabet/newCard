@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
 			$table->integer('informationId')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('verified')->default(false);
         });
     }
 
@@ -35,4 +36,6 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+
 }
