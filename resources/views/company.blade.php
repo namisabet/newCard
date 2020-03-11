@@ -14,8 +14,9 @@ $buffer="UndefinedBuffer";
 $buffer1="UndefinedBuffer";
 $array = [];
 $exist = true;
-$half="";
+$half=0;
 $half1=0;
+$user=false;
 
 //Ultra REGEX Expertise, Cookie set in CompanyController
 if(!isset($_SESSION["desc1"])) {
@@ -69,15 +70,7 @@ else if($var < 909){
 }
 else{ //User Images
 
-    if ($companyGallery===null){
-        //Get Image Blob
-        $companyBlob = "";
 
-        //convert Blob to String for REGEX
-        $companyImageString = "";
-    }
-    else
-    {
         $companyGallery1 = DB::table('gallery')->where('companyId',$var)->get();
         $x=0;
 
@@ -90,10 +83,11 @@ else{ //User Images
         }
 
         $splitImages=$array;
-        $half1=0;
-        $half=1;
+        $half=0;
+        $half1=4;
+        $user=true;
 
-    }
+
 }
 
 
@@ -279,7 +273,7 @@ else{ //User Images
     <!--=================================
      page-title-->
 
-    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url({{$splitImages[$half1]}});">
+    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(<?php if($user == false){echo $splitImages[$half1];}else if($user==true){echo 'companyImage/'.$var.'_imagePrincipal.png';} ?>);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -326,7 +320,7 @@ else{ //User Images
                 </div>
                 <div class="col-lg-6">
                     <!--<img  class="img-fluid full-width" src="template/images/about/01.jpg">-->
-                    <img  class="img-fluid full-width" src="{{$splitImages[$half1]}}">
+                    <img  class="img-fluid full-width" src="<?php if($user == false){echo $splitImages[$half1];}else if($user==true){echo 'companyImage/'.$var.'_imagePrincipal.png';} ?>">
                 </div>
             </div>
             <div class="row">
@@ -352,17 +346,17 @@ else{ //User Images
 
                 </div>
                 <div class="col-lg-12">
-                    <img src="<?php if($half1 > 5){echo $splitImages[$half1-1];} ?>" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 5){echo $splitImages[$half1-1];}else if($user==true){echo 'companyImage/'.$var.'_image1.png';} ?>" class="img-fluid full-width mt-20">
                 </div>
             </div>
 
 
             <div class="row">
                 <div class="col-md-6">
-                    <img src="<?php if($half1 > 7){echo $splitImages[$half1-2];} ?>" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 7){echo $splitImages[$half1-2];}else if($user==true){echo 'companyImage/'.$var.'_image2.png';} ?>" class="img-fluid full-width mt-20">
                 </div>
                 <div class="col-md-6">
-                    <img src="<?php if($half1 > 9){echo $splitImages[$half1-3];} ?>" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 9){echo $splitImages[$half1-3];}else if($user==true){echo 'companyImage/'.$var.'_image3.png';} ?>" class="img-fluid full-width mt-20">
                 </div>
             </div>
 

@@ -29,27 +29,53 @@
                                 @endisset--}}
                                 <div class="col-md-2">
                                     <?php
-                                        if(isset($imageTitre)){
-                                            echo "<img src='$imageTitre' alt='image' width='50px' height='50px'>";
+                                        if(isset($imageTitre) && $imageTitre != ""){
+
+                                            echo "<img src='$imageTitre' alt='NoImage' width='65px' height='50px'>";
+                                            echo "<input type='hidden' name='imageTitre' value='exist'>";
+                                        }
+                                        else{
+                                            echo "<img src='/' alt='NoImage' width='65px' height='50px'>";
                                         }
                                     ?>
-                                </div>
+                                </div><br>
                                 <div class="col-md-6">
-                                    <input id="imageTitre" type="file"  name="imageTitre"  required autofocus>
+                                    <input id="imageTitre" type="file"  name="imageTitre" <?php if(isset($imageTitre) && $imageTitre == ""){echo " required ";} ?> autofocus>
                                 </div>
                             </div>
                             <!-- Image Card/Main -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="imagePrincipal" class="col-md-4 control-label">Image Principal</label>
+                                <div class="col-md-2">
+                                    <?php
+                                    if(isset($imagePrincipal) && $imagePrincipal != ""){
 
+                                        echo "<img src='$imagePrincipal' alt='NoImage' width='65px' height='50px'>";
+                                        echo "<input type='hidden' name='imagePrincipal' value='exist'>";
+                                    }
+                                    else{
+                                        echo "<img src='/' alt='NoImage' width='65px' height='50px'>";
+                                    }
+                                    ?>
+                                </div><br>
                                 <div class="col-md-6">
-                                    <input id="imagePrincipal" type="file"  name="imagePrincipal"  required autofocus>
+                                    <input id="imagePrincipal" type="file"  name="imagePrincipal" <?php if(isset($imagePrincipal) && $imagePrincipal == ""){echo " required ";} ?> autofocus>
                                 </div>
                             </div>
                             <!-- Image 1 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="image1" class="col-md-4 control-label">Image 1</label>
-
+                                <div class="col-md-2">
+                                    <?php
+                                    if(isset($image1) && $image1 != ""){
+                                        echo "<img src='$image1' alt='NoImage' width='65px' height='50px'>";
+                                        echo "<input type='hidden' name='image1' value='exist'>";
+                                    }
+                                    else{
+                                        echo "<img src='/' alt='NoImage' width='65px' height='50px'>";
+                                    }
+                                    ?>
+                                </div><br>
                                 <div class="col-md-6">
                                     <input id="image1" type="file"  name="image1" >
                                 </div>
@@ -57,7 +83,17 @@
                             <!-- Image 2 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="image2" class="col-md-4 control-label">Image 2</label>
-
+                                <div class="col-md-2">
+                                    <?php
+                                    if(isset($image2) && $image2 != ""){
+                                        echo "<img src='$image2' alt='NoImage' width='65px' height='50px'>";
+                                        echo "<input type='hidden' name='image2' value='exist'>";
+                                    }
+                                    else{
+                                        echo "<img src='/' alt='NoImage' width='65px' height='50px'>";
+                                    }
+                                    ?>
+                                </div><br>
                                 <div class="col-md-6">
                                     <input id="image2" type="file"  name="image2" >
                                 </div>
@@ -65,7 +101,17 @@
                             <!-- Image 3 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="image3" class="col-md-4 control-label">Image 3</label>
-
+                                <div class="col-md-2">
+                                    <?php
+                                    if(isset($image3) && $image3 != ""){
+                                        echo "<img src='$image3' alt='NoImage' width='65px' height='50px'>";
+                                        echo "<input type='hidden' name='image3' value='exist'>";
+                                    }
+                                    else{
+                                        echo "<img src='/' alt='NoImage' width='65px' height='50px'>";
+                                    }
+                                    ?>
+                                </div><br>
                                 <div class="col-md-6">
                                     <input id="image3" type="file"  name="image3"  >
                                 </div>
@@ -73,7 +119,17 @@
                             <!-- Image 4 -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="image4" class="col-md-4 control-label">Image 4</label>
-
+                                <div class="col-md-2">
+                                    <?php
+                                    if(isset($image4) && $image4 != ""){
+                                        echo "<img src='$image4' alt='NoImage' width='66px' height='50px'>";
+                                        echo "<input type='hidden' name='image4' value='exist'>";
+                                    }
+                                    else{
+                                        echo "<img src='/' alt='NoImage' width='65px' height='50px'>";
+                                    }
+                                    ?>
+                                </div><br>
                                 <div class="col-md-6">
                                     <input id="image4" type="file"  name="image4"  >
                                 </div>

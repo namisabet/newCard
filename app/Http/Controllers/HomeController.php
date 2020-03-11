@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Informations;
 use DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 
 class HomeController extends Controller
 {
@@ -155,7 +156,7 @@ class HomeController extends Controller
         foreach($companyGallery as $image){
             $imageAfterId = substr($image->image, strpos($image->image, "image") + 5);
             $imageBeforeExtension = substr($imageAfterId, 0, strpos($imageAfterId, "."));
-            echo $imageBeforeExtension;
+            //echo $imageBeforeExtension;
             if($imageBeforeExtension == "Titre"){
                 $imageTitre = $image->image;
             }
@@ -198,52 +199,72 @@ class HomeController extends Controller
         //Check if Input is null
         if( request()->hasFile('imageTitre')) {
             $image = request()->file('imageTitre');
-            $filename = $companyinfo->id . '_imageTitre.' . $image->getClientOriginalExtension();
+            $filename = $companyinfo->id . '_imageTitre.png'; /*. $image->getClientOriginalExtension();*/
             //Check if image is set or not
-            $image->move($physicalPath, $filename);
-            DB::table('gallery')->insert(
-                ['Image' => $path.$filename, 'companyId' => $companyinfo->id]
-            );
+            if(Request::get('imageTitre') != null){
+                $image->move($physicalPath, $filename);
+            }
+            else{
+                $image->move($physicalPath, $filename);
+                DB::table('gallery')->insert(
+                    ['image' => $path.$filename, 'companyId' => $companyinfo->id]
+                );
+            }
         }
         if( request()->hasFile('imagePrincipal')) {
             $image = request()->file('imagePrincipal');
             $filename =  $companyinfo->id . '_imagePrincipal.' . $image->getClientOriginalExtension();
+            //Check if image is set or not
             $image->move($physicalPath, $filename);
-            DB::table('gallery')->insert(
-                ['Image' => $path.$filename, 'companyId' => $companyinfo->id]
-            );
+            if(Request::get('imagePrincipal') == null){
+                DB::table('gallery')->insert(
+                    ['image' => $path.$filename, 'companyId' => $companyinfo->id]
+                );
+            }
         }
         if( request()->hasFile('image1')) {
             $image = request()->file('image1');
             $filename =  $companyinfo->id . '_image1.' . $image->getClientOriginalExtension();
+            //Check if image is set or not
             $image->move($physicalPath, $filename);
-            DB::table('gallery')->insert(
-                ['Image' => $path.$filename, 'companyId' => $companyinfo->id]
-            );
+            if(Request::get('image1') == null){
+                DB::table('gallery')->insert(
+                    ['image' => $path.$filename, 'companyId' => $companyinfo->id]
+                );
+            }
         }
         if( request()->hasFile('image2')) {
             $image = request()->file('image2');
             $filename =  $companyinfo->id . '_image2.' . $image->getClientOriginalExtension();
+            //Check if image is set or not
             $image->move($physicalPath, $filename);
-            DB::table('gallery')->insert(
-                ['Image' => $path.$filename, 'companyId' => $companyinfo->id]
-            );
+            if(Request::get('image2') == null){
+                DB::table('gallery')->insert(
+                    ['image' => $path.$filename, 'companyId' => $companyinfo->id]
+                );
+            }
         }
         if( request()->hasFile('image3')) {
             $image = request()->file('image3');
             $filename =  $companyinfo->id . '_image3.' . $image->getClientOriginalExtension();
+            //Check if image is set or not
             $image->move($physicalPath, $filename);
-            DB::table('gallery')->insert(
-                ['Image' => $path.$filename, 'companyId' => $companyinfo->id]
-            );
+            if(Request::get('image3') == null) {
+                DB::table('gallery')->insert(
+                    ['image' => $path . $filename, 'companyId' => $companyinfo->id]
+                );
+            }
         }
         if( request()->hasFile('image4')) {
             $image = request()->file('image4');
             $filename =  $companyinfo->id . '_image4.' . $image->getClientOriginalExtension();
+            //Check if image is set or not
             $image->move($physicalPath, $filename);
-            DB::table('gallery')->insert(
-                ['Image' => $path.$filename, 'companyId' => $companyinfo->id]
-            );
+            if(Request::get('image4') == null) {
+                DB::table('gallery')->insert(
+                    ['image' => $path . $filename, 'companyId' => $companyinfo->id]
+                );
+            }
         }
 
         return view('Home')->with('titre',$companyinfo->titre)

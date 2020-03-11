@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -35,6 +36,16 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
+
+    protected function renderHttpException(HttpException $e)
+    {
+
+        if (! view()->exists("errors.{$e->getStatusCode()}")) {
+            return response()->view('errors.default', ['exception' => $e], 500, $e->getHeaders());
+        }
+        return parent::renderHttpException($e);
+    }
+
     /**
      * Render an exception into an HTTP response.
      *
@@ -44,7 +55,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+//        if ($this->isHttpException($exception)) {
+//            if ($exception->getStatusCode() == 404) {
+//                return response()->view('errors.' . '404', [], 404);
+//            }
+//        }
         return parent::render($request, $exception);
+       //return response()->view('errors.' . '404');
     }
 
     /**
