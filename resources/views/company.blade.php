@@ -332,6 +332,7 @@ else{ //User Images
                     <h4 class="mb-20">Contact</h4>
                     <a href="{{ $link }}">{{ $link }}</a>
                     <p>{{ $email }}</p>
+                    <p>{{ $phone }}</p>
 
                 </div>
                 <div class="col-md-6 mt-40 mb-40">

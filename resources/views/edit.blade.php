@@ -7,11 +7,59 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit Information</div>
-
+                    <div class="panel-heading"><h4>Edit User Information</h4></div>
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('postEdit') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+                            <!-- Start User Edit -->
+
+                            <div class="form-group{{ $errors->has('userName') ? ' has-error' : '' }}">
+                                <label for="userName" class="col-md-4 control-label">Name</label>
+
+                                <div class="col-md-6">
+                                    <input id="userName" type="text" class="form-control" maxlength="30" name="userName" value="{{ $userName }}" required autofocus>
+
+                                    @if ($errors->has('userName'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('userName') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('userEmail') ? ' has-error' : '' }}">
+                                <label for="userEmail" class="col-md-4 control-label">E-Mail Address</label>
+
+                                <div class="col-md-6">
+                                    <input id="userEmail" type="userEmail" class="form-control" maxlength="64" name="userEmail" value="{{ $userEmail }}" required>
+
+                                    @if ($errors->has('userEmail'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('userEmail') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('userPhone') ? ' has-error' : '' }}">
+                                <label for="userPhone" class="col-md-4 control-label">Telephone</label>
+
+                                <div class="col-md-6">
+                                    <input id="userPhone" type="tel" placeholder="514-123-4567" pattern="[0-9]{3} [0-9]{3} [0-9]{4}|[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="16" class="form-control" name="userPhone" value="{{ $userPhone }}" required autofocus>
+
+                                    @if ($errors->has('userPhone'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('userPhone') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+                            <!-- End user Edit -->
+                            <div class="panel-heading"><h4>Edit Company Information</h4></div>
                             <!-- Company Title -->
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="titre" class="col-md-4 control-label">Titre de la Compagnie</label>

@@ -327,7 +327,7 @@
 
                                         //Console Debug
                                         echo '<script>';
-                                        echo 'console.log('. json_encode( $total ) .')';
+                                        echo 'console.log('. json_encode( $i ) .')';
                                         echo '</script>';
 
                                     try{

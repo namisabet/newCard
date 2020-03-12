@@ -57,6 +57,11 @@ class HomeController extends Controller
 
         $companyinfo = DB::table('informations')->where('id',$user->informationId)->first();
 
+        //User
+        $userName = $user->name;
+        $userEmail = $user->email;
+        $userPhone = $user->phone;
+        //Company
         $titre = $companyinfo->titre;
         $link = $companyinfo->link;
         $email = $companyinfo->email;
@@ -66,7 +71,10 @@ class HomeController extends Controller
         $budget = $companyinfo->budget;
         $expert = $companyinfo->expertise;
 
-        return view('edit')->with('titre',$titre)
+        return view('edit')->with('userName',$userName)
+            ->with('userEmail',$userEmail)
+            ->with('userPhone',$userPhone)
+            ->with('titre',$titre)
             ->with('link',$link)
             ->with('email',$email)
             ->with('phone',$phone)
@@ -83,6 +91,10 @@ class HomeController extends Controller
 
         $inputs = request()->all();
 
+        $user->name = $inputs['userName'];
+        $user->email = $inputs['userEmail'];
+        $user->phone = $inputs['userPhone'];
+
         $companyinfo->titre = $inputs['titre'];
         $companyinfo->link = $inputs['link'];
         $companyinfo->email = $inputs['emailc'];
@@ -92,6 +104,7 @@ class HomeController extends Controller
         $companyinfo->ville = $inputs['ville'];
         $companyinfo->budget = $inputs['budget'];
 
+        $user->save();
         $companyinfo->save();
 
         return view('Home')->with('titre',$companyinfo->titre)
