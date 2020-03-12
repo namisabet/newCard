@@ -421,6 +421,7 @@
                                         <?php
                                                 //---------------Dynamic Page Numbers-------------
 
+                                                $wrongPage=false;
                                                 $next=$pageNo+1;
                                                 //Last page
                                                  $lastPage=$totalPages;
@@ -506,6 +507,16 @@
                                                         echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
                                                     }
                                                 }
+                                                else if($pageNo>$lastPage || $pageNo < 1){
+                                                    $wrongPage=true;
+                                                    //First Page
+                                                    echo '<li class="page-item" style="padding-bottom: 5%">';
+                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
+                                                    echo '<span aria-hidden="true">Back to First Page</span>';
+                                                    echo '<span class="sr-only">First</span>';
+                                                    echo '</a>';
+                                                    echo '</li>';
+                                                }
                                                 else{ //Page > 1
                                                     $previous=$pageNo-1;
                                                     $class="";
@@ -539,9 +550,8 @@
 
                                                 }
 
-
                                         // Next page and Last Page
-                                        if ($pageNo==$lastPage){
+                                        if ($pageNo==$lastPage || $wrongPage==true){
                                                     //Don't display anything
                                         }
                                         else{

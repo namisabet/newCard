@@ -269,7 +269,8 @@ else{ //User Images
     <!--=================================
      page-title-->
 
-    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(<?php if($user == false){echo $splitImages[$half1];}else if($user==true){echo 'companyImage/'.$var.'_imagePrincipal.png';} ?>);">
+    <!-- Parallax-->
+    <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(<?php if($half1 > 11){echo $splitImages[$half1-4];}else if($user==true){echo 'companyImage/'.$var.'_image4.png';} ?>); " onerror="this.onerror=null; this.src=''">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
