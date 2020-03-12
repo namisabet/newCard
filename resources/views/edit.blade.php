@@ -183,7 +183,7 @@
 
                                     <select name="budget" id="budget">
                                         @php
-                                            $budgetList = array("0 ~ 3,000 $","3,000 ~ 10,000 $","10,000 ~ 25,000 $","25,000 ~ 50,000 $","50,000 + $");
+                                            $budgetList = array("- de 3,000 $","3,000$ à 10,000$","10,000$ à 25,000$","25,000$ à 50,000$","50,000$ et +");
                                         @endphp
                                         @foreach($budgetList as $budgetName)
                                             @if($budget == $budgetName)

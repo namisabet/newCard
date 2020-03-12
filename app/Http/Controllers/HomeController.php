@@ -112,9 +112,9 @@ class HomeController extends Controller
             ->with('email',$companyinfo->email)
             ->with('phone',$companyinfo->telephone)
             ->with('desc',$companyinfo->description)
-            ->with('ville',$companyinfo->expertise)
-            ->with('budget',$companyinfo->ville)
-            ->with('expert',$companyinfo->budget);
+            ->with('ville',$companyinfo->ville)
+            ->with('budget',$companyinfo->budget)
+            ->with('expert',$companyinfo->expertise);
     }
     // Upload/Get Images
     public function upload()

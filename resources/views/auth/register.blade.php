@@ -232,15 +232,15 @@
                             <div class="col-md-6">
                                 <select name="budget" id="budget">
 
-                                <option value="0 ~ 3,000 $">0 ~ 3,000 $</option>
+                                <option value="- de 3,000 $">0 ~ 3,000 $</option>
 
-                                <option value="3,000 ~ 10,000 $">3,000 ~ 10,000 $</option>
+                                <option value="3,000$ à 10,000$">3,000 ~ 10,000 $</option>
 
-                                <option value="10,000 ~ 25,000 $">10,000 ~ 25,000 $</option>
+                                <option value="10,000$ à 25,000$">10,000 ~ 25,000 $</option>
 
-                                <option value="25,000 ~ 50,000 $">25,000 ~ 50,000 $</option>
+                                <option value="25,000$ à 50,000$">25,000 ~ 50,000 $</option>
 
-                                <option value="50,000 + $">50,000 + $</option>
+                                <option value="50,000$ et +">50,000 + $</option>
 
                             </select>
 
