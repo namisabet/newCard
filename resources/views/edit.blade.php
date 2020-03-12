@@ -219,7 +219,7 @@ footer -->
             <div class="footer-widget mt-20">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> Webster </a> All Rights Reserved </p>
+                        <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="delisoft.ca"> Delisoft </a> All Rights Reserved </p>
                     </div>
 
                 </div>
