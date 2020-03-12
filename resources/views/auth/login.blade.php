@@ -69,7 +69,7 @@
 <!--=================================
 footer -->
 
-<footer class="footer page-section-pt black-bg" style="margin-top: 5%">
+<footer class="footer page-section-pt black-bg" style="margin-top: 25%">
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-sm-6 sm-mb-30">

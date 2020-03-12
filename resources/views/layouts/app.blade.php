@@ -15,26 +15,26 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/circle.png" />
+    <link rel="icon" type="image/png" href="{{ asset('img/circle.png') }}" />
 
 
     <!-- Typography -->
-    <link rel="stylesheet" type="text/css" href="css/typography.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/typography.css') }}" />
 
     <!-- Shortcodes -->
-    <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/shortcodes/shortcodes.css') }}" />
 
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 
     <!-- marketing -->
     <link rel="stylesheet" type="text/css" href="css/marketing.css" />
 
     <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
 
     <!-- Style customizer -->
-    <link rel="stylesheet" type="text/css" href="css/skins/skin-green.css" data-style="styles"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/skins/skin-green.css') }}" data-style="styles"/>
 
     <style>
 
@@ -66,7 +66,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a  href="/"><img src="img/delisoft.png" alt="logo" style="height: 50px"> </a>
+                    <a  href="/"><img src="{{ asset('img/delisoft.png') }}" alt="logo" style="height: 50px"> </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

@@ -70,8 +70,8 @@ else if($var < 909){
 }
 else{ //User Images
 
-
         $companyGallery1 = DB::table('gallery')->where('companyId',$var)->get();
+        /*
         $x=0;
 
         foreach($companyGallery1 as $image){
@@ -81,17 +81,13 @@ else{ //User Images
             $array[$x] = $companyBlob;
             $x++;
         }
-
+*/
         $splitImages=$array;
         $half=0;
         $half1=4;
         $user=true;
 
-
 }
-
-
-
 
 ?>
 
@@ -320,7 +316,13 @@ else{ //User Images
                 </div>
                 <div class="col-lg-6">
                     <!--<img  class="img-fluid full-width" src="template/images/about/01.jpg">-->
-                    <img  class="img-fluid full-width" src="<?php if($user == false){echo $splitImages[$half1];}else if($user==true){echo 'companyImage/'.$var.'_imagePrincipal.png';} ?>">
+                    <img  class="img-fluid full-width" src="
+                        <?php //Insert image + error catcher
+                            if($user == false){echo $splitImages[$half1];}
+                            else if($user==true ){
+                            echo 'companyImage/'.$var.'_imagePrincipal.png';}
+                            ?>"
+                              onerror="this.onerror=null; this.src=''">
                 </div>
             </div>
             <div class="row">
@@ -346,17 +348,17 @@ else{ //User Images
 
                 </div>
                 <div class="col-lg-12">
-                    <img src="<?php if($half1 > 5){echo $splitImages[$half1-1];}else if($user==true){echo 'companyImage/'.$var.'_image1.png';} ?>" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 5){echo $splitImages[$half1-1];}else if($user==true){echo 'companyImage/'.$var.'_image1.png';} ?>" onerror="this.onerror=null; this.src=''" class="img-fluid full-width mt-20">
                 </div>
             </div>
 
 
             <div class="row">
                 <div class="col-md-6">
-                    <img src="<?php if($half1 > 7){echo $splitImages[$half1-2];}else if($user==true){echo 'companyImage/'.$var.'_image2.png';} ?>" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 7){echo $splitImages[$half1-2];}else if($user==true){echo 'companyImage/'.$var.'_image2.png';} ?>" onerror="this.onerror=null; this.src=''" class="img-fluid full-width mt-20">
                 </div>
                 <div class="col-md-6">
-                    <img src="<?php if($half1 > 9){echo $splitImages[$half1-3];}else if($user==true){echo 'companyImage/'.$var.'_image3.png';} ?>" class="img-fluid full-width mt-20">
+                    <img src="<?php if($half1 > 9){echo $splitImages[$half1-3];}else if($user==true){echo 'companyImage/'.$var.'_image3.png';} ?>" onerror="this.onerror=null; this.src=''" class="img-fluid full-width mt-20">
                 </div>
             </div>
 

@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4>Recherche Avance</h4></div>
+                    <div class="panel-heading"><h4>Recherche Avancée</h4></div>
 
                     <div class="panel-body" style="border-bottom: 2px solid gray; border-top: 2px solid gray">
                         <!-- Content -->
@@ -119,7 +119,7 @@
 
     </div>
     <div class="wrapper">
-    <section class="marketing-team white-bg page-section-ptb">
+    <section class="marketing-team white-bg page-section-ptb" style="margin-bottom: 0%;padding-bottom:22%">
         <div class="container">
             <div class="row" style="text-align: center; margin: 0px ">
                 <?php
@@ -221,7 +221,7 @@
                     try{
                         if($exist==true){// Print Card
 
-                            echo '<div class="col-lg-6 col-md-6 mb-30" style="border: 2px groove white; height: 300px; overflow: hidden; padding:10px;"  >';
+                            echo '<div class="col-lg-6 col-md-6 mb-0" style="border: 2px groove white; height: 300px; overflow: hidden; padding:10px;">';
                             echo '<div class="team team-list">';
                             echo '<div class="team-photo">';
                             echo '<a href="company?id='.$r.'">';
@@ -258,7 +258,7 @@
     <!--=================================
     footer -->
 
-    <footer class="footer page-section-pt black-bg" style="margin-top: 16%">
+    <footer class="footer page-section-pt black-bg" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-sm-6 sm-mb-30">

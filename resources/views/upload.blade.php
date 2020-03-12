@@ -13,7 +13,12 @@
                         <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('postUpload') }}">
                             {{ csrf_field() }}
                             <!-- Image Titre -->
-
+                                <?php
+                                    if(isset($invalidImage)){
+                                        echo $invalidImage;
+                                        echo "<br><br>";
+                                    }
+                                ?>
                             <div class="form-group{{ $errors->has('titre') ? ' has-error' : '' }}">
                                 <label for="imageTitre" class="col-md-4 control-label">Image Titre</label>
                                 {{--isset( $imageSet )
@@ -31,7 +36,7 @@
                                     <?php
                                         if(isset($imageTitre) && $imageTitre != ""){
 
-                                            echo "<img src='$imageTitre' alt='NoImage' width='65px' height='50px'>";
+                                            echo "<img src='$imageTitre ' alt='NoImage' width='65px' height='50px'>";
                                             echo "<input type='hidden' name='imageTitre' value='exist'>";
                                         }
                                         else{
@@ -40,7 +45,7 @@
                                     ?>
                                 </div><br>
                                 <div class="col-md-6">
-                                    <input id="imageTitre" type="file"  name="imageTitre" <?php if(isset($imageTitre) && $imageTitre == ""){echo " required ";} ?> autofocus>
+                                    <input id="imageTitre" type="file"  name="imageTitre" accept='image/jpeg , image/gif, image/jpg, image/png' <?php if(isset($imageTitre) && $imageTitre == ""){echo " required ";} ?> autofocus>
                                 </div>
                             </div>
                             <!-- Image Card/Main -->
@@ -59,7 +64,7 @@
                                     ?>
                                 </div><br>
                                 <div class="col-md-6">
-                                    <input id="imagePrincipal" type="file"  name="imagePrincipal" <?php if(isset($imagePrincipal) && $imagePrincipal == ""){echo " required ";} ?> autofocus>
+                                    <input id="imagePrincipal" type="file"  name="imagePrincipal" accept='image/jpeg , image/gif, image/jpg, image/png' <?php if(isset($imagePrincipal) && $imagePrincipal == ""){echo " required ";} ?> autofocus>
                                 </div>
                             </div>
                             <!-- Image 1 -->
@@ -77,7 +82,7 @@
                                     ?>
                                 </div><br>
                                 <div class="col-md-6">
-                                    <input id="image1" type="file"  name="image1" >
+                                    <input id="image1" type="file" accept='image/jpeg , image/gif, image/jpg, image/png' name="image1" >
                                 </div>
                             </div>
                             <!-- Image 2 -->
@@ -95,7 +100,7 @@
                                     ?>
                                 </div><br>
                                 <div class="col-md-6">
-                                    <input id="image2" type="file"  name="image2" >
+                                    <input id="image2" type="file" accept='image/jpeg , image/gif, image/jpg, image/png' name="image2" >
                                 </div>
                             </div>
                             <!-- Image 3 -->
@@ -113,7 +118,7 @@
                                     ?>
                                 </div><br>
                                 <div class="col-md-6">
-                                    <input id="image3" type="file"  name="image3"  >
+                                    <input id="image3" type="file" accept='image/jpeg , image/gif, image/jpg, image/png' name="image3"  >
                                 </div>
                             </div>
                             <!-- Image 4 -->
@@ -131,7 +136,7 @@
                                     ?>
                                 </div><br>
                                 <div class="col-md-6">
-                                    <input id="image4" type="file"  name="image4"  >
+                                    <input id="image4" type="file" accept='image/jpeg , image/gif, image/jpg, image/png' name="image4"  >
                                 </div>
                             </div>
 
