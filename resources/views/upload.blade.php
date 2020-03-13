@@ -171,37 +171,35 @@
     <!--=================================
 footer -->
 
-    <footer class="footer page-section-pt black-bg" style="margin-top: 80px">
+    <footer class="footer page-section-pt black-bg" style="margin-top: 8%">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-sm-6 sm-mb-30">
                     <div class="footer-useful-link footer-hedding">
                         <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
                         <ul>
-                            <li><a href="/">Home Page</a></li>
-                            <li><a href="/home">My Profile</a></li>
-                            <li><a href="/search">Search</a></li>
+                            <li><a href="/">Page Principale</a></li>
+                            <li><a href="/home">Mon Profil</a></li>
+                            <li><a href="/search">Recherche</a></li>
 
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-sm-6 sm-mb-30">
                     <div class="footer-useful-link footer-hedding">
-                        <h6 class="text-white mb-30 mt-10 text-uppercase">Useful Link</h6>
+                        <h6 class="text-white mb-30 mt-10 text-uppercase">Liens Utiles</h6>
                         <ul>
-                            <li><a href="#">Create Account</a></li>
-                            <li><a href="#">Company Philosophy</a></li>
-                            <li><a href="#">Corporate Culture</a></li>
+                            <li><a href="register">Créer un Compte</a></li>
+
 
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 xs-mb-30">
-                    <h6 class="text-white mb-30 mt-10 text-uppercase">Contact Us</h6>
+                    <h6 class="text-white mb-30 mt-10 text-uppercase">Contacter Nous</h6>
                     <ul class="addresss-info">
-                        <li> <p>Address: 17504 Carlton Cuevas Rd, Gulfport, MS, 39503</p> </li>
                         <li> <a href="tel:7042791249"> <span>+(704) 279-1249 </span> </a> </li>
-                        <li>Email: letstalk@webster.com</li>
+                        <li>Courriel: info@agenceswebduquebec.com</li>
                     </ul>
                 </div>
 
@@ -209,7 +207,7 @@ footer -->
             <div class="footer-widget mt-20">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="delisoft.ca"> Delisoft </a> All Rights Reserved </p>
+                        <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="https://delisoft.ca/"> Delisoft </a> All Rights Reserved </p>
                     </div>
 
                 </div>

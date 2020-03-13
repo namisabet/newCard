@@ -15,7 +15,7 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('img/circle.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('img/super.png') }}" />
 
 
     <!-- Typography -->
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
 
     <!-- Style customizer -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/skins/skin-green.css') }}" data-style="styles"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/skins/skin-blue-gem.css') }}" data-style="styles"/>
 
     <style>
 
@@ -66,7 +66,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a  href="/"><img src="{{ asset('img/delisoft.png') }}" alt="logo" style="height: 50px"> </a>
+                    <a  href="/"><img src="{{ asset('img/ez.png') }}" alt="logo" style="height: 50px"> </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -80,9 +80,9 @@
 
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('search') }}">Search</a></li>
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('search') }}">Recherche</a></li>
+                            <li><a href="{{ route('login') }}">Connexion</a></li>
+                            <li><a href="{{ route('register') }}">Inscription</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

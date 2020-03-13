@@ -17,7 +17,7 @@
 
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="img/circle.png" />
+        <link rel="icon" type="image/png" href="img/super.png" />
 
         <!-- font -->
         <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900|Nunito:200,300,400,400i,600,600i,700,700i,800,800i,900">
@@ -41,7 +41,7 @@
         <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
         <!-- Style customizer -->
-        <link rel="stylesheet" type="text/css" href="css/skins/skin-green.css" data-style="styles"/>
+        <link rel="stylesheet" type="text/css" href="css/skins/skin-blue-gem.css" data-style="styles"/>
 
         <style>
             html, body {
@@ -100,7 +100,7 @@
             <div class="wrapper">
 
                 <div id="pre-loader">
-                    <img src="img/pre-loader/loader-04.svg" alt="">
+                    <img src="img/pre-loader/loader-13.svg" alt="">
                 </div>
 
                 <!--=================================
@@ -148,9 +148,9 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <!-- menu logo -->
-                                            <ul class="menu-logo">
+                                            <ul class="menu-logo" >
                                                 <li>
-                                                    <a href="/"><img src="img/delisoft.png" alt="logo"> </a>
+                                                    <a href="/"><img src="img/ez.png" alt="logo" style="min-height: 40px"> </a>
                                                 </li>
                                             </ul>
                                             <!-- menu links -->
@@ -158,12 +158,12 @@
 
                                                 @if (Route::has('login'))
                                                     <div class="top-right links">
-                                                            <a href="{{ url('/search') }}">Search</a>
+                                                            <a href="{{ url('/search') }}">Recherche</a>
                                                         @if (Auth::check())
-                                                            <a href="{{ url('/home') }}">Home</a>
+                                                            <a href="{{ url('/home') }}">Profil</a>
                                                         @else
-                                                            <a href="{{ url('/login') }}">Login</a>
-                                                            <a href="{{ url('/register') }}">Register</a>
+                                                            <a href="{{ url('/login') }}">Connexion</a>
+                                                            <a href="{{ url('/register') }}">Inscription</a>
                                                         @endif
                                                     </div>
                                                 @endif
@@ -183,7 +183,7 @@
                 <!--=================================
                  page-title-->
 
-                <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(template/images/test.jpeg);">
+                <section class="page-title center bg-overlay-theme-50 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(img/webGif.gif);">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
@@ -600,76 +600,38 @@
                                 <div class="footer-useful-link footer-hedding">
                                     <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
                                     <ul>
-                                        <li><a href="/">Home Page</a></li>
-                                        <li><a href="/home">My Profile</a></li>
-                                        <li><a href="/search">Search</a></li>
+                                        <li><a href="/">Page Principale</a></li>
+                                        <li><a href="/home">Mon Profil</a></li>
+                                        <li><a href="/search">Recherche</a></li>
 
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-sm-6 sm-mb-30">
                                 <div class="footer-useful-link footer-hedding">
-                                    <h6 class="text-white mb-30 mt-10 text-uppercase">Useful Link</h6>
+                                    <h6 class="text-white mb-30 mt-10 text-uppercase">Liens Utiles</h6>
                                     <ul>
-                                        <li><a href="register">Create Account</a></li>
-                                        <li><a href="#">Company Philosophy</a></li>
-                                        <li><a href="#">Corporate Culture</a></li>
+                                        <li><a href="register">Créer un Compte</a></li>
+
 
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6 xs-mb-30">
-                                <h6 class="text-white mb-30 mt-10 text-uppercase">Contact Us</h6>
+                                <h6 class="text-white mb-30 mt-10 text-uppercase">Contacter Nous</h6>
                                 <ul class="addresss-info">
-                                    <li> <p>Address: 17504 Carlton Cuevas Rd, Gulfport, MS, 39503</p> </li>
                                     <li> <a href="tel:7042791249"> <span>+(704) 279-1249 </span> </a> </li>
-                                    <li>Email: letstalk@webster.com</li>
+                                    <li>Courriel: info@agenceswebduquebec.com</li>
                                 </ul>
                             </div>
-                            <!-- Newsletter Signup
-                            <div class="col-lg-4 col-sm-6">
-                                <h6 class="text-white mb-30 mt-10 text-uppercase">Subscribe to Our Newsletter</h6>
-                                <p class="mb-30">Sign Up to our Newsletter to get the latest news and offers.</p>
-                                <div class="footer-Newsletter">
-                                    <div id="mc_embed_signup_scroll">
-                                        <form action="php/mailchimp-action.php" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
-                                            <div id="msg"> </div>
-                                            <div id="mc_embed_signup_scroll_2">
-                                                <input id="mce-EMAIL" class="form-control" type="text" placeholder="Email address" name="email1" value="">
-                                            </div>
-                                            <div id="mce-responses" class="clear">
-                                                <div class="response" id="mce-error-response" style="display:none"></div>
-                                                <div class="response" id="mce-success-response" style="display:none"></div>
-                                            </div>
-                                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                                <input type="text" name="b_b7ef45306f8b17781aa5ae58a_6b09f39a55" tabindex="-1" value="">
-                                            </div>
-                                            <div class="clear">
-                                                <button type="submit" name="submitbtn" id="mc-embedded-subscribe" class="button button-border mt-20 form-button">  Get notified </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
+
                         </div>
                         <div class="footer-widget mt-20">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
-                                    <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="delisoft.ca"> Delisoft </a> All Rights Reserved </p>
+                                    <p class="mt-15"> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="https://delisoft.ca/"> Delisoft </a> All Rights Reserved </p>
                                 </div>
-                                <!--
-                                <div class="col-lg-6 col-md-6 text-left text-md-right">
-                                    <div class="social-icons color-hover mt-10">
-                                        <ul>
-                                            <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li class="social-dribbble"><a href="#"><i class="fa fa-dribbble"></i> </a></li>
-                                            <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i> </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                -->
+
                             </div>
                         </div>
                     </div>
