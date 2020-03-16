@@ -87,7 +87,7 @@ var $window = $(window),
        $("#load").fadeOut();
        $('#pre-loader').delay(0).fadeOut('fast');
    };
- 
+
 /*************************
        Mega menu
 *************************/    

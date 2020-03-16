@@ -32,3 +32,5 @@ Route::post('/upload', 'HomeController@postUpload')->name('postUpload');
 Route::get('/search','CompanyController@search')->name('search');
 Route::post('/search','CompanyController@postSearch')->name('postSearch');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('/delete','HomeController@delete')->name('delete');
+Route::post('/delete','HomeController@postDelete')->name('postDelete');

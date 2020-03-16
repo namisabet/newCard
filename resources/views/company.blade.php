@@ -206,9 +206,8 @@ else{ //User Images
 <div class="wrapper">
 
     <div id="pre-loader">
-        <img src="img/pre-loader/loader-04.svg" alt="">
+        <img src="img/pre-loader/loader-13.svg" alt="">
     </div>
-
     <!--=================================
     header -->
 

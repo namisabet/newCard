@@ -354,4 +354,26 @@ class HomeController extends Controller
         return true;
     }
 
+    public function delete()
+    {
+        return view('delete');
+    }
+
+    public function postDelete()
+    {
+        //Get User and Info model
+        $user = Auth::user();
+        $companyInfo = Informations::find($user->informationId);
+
+        //Log out of current session
+        Auth::logout();
+
+        //Delete info from database
+        DB::table('gallery')->where('companyId',$companyInfo->id)->delete();
+        $companyInfo->delete();
+        $user->delete();
+
+        return view('welcome');
+    }
+
 }

@@ -5,51 +5,44 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><h2>Dashboard</h2></div>
+                <div class="panel-heading"><h2>Delete Your Account</h2></div>
 
-                <div class="panel-body" style="overflow: hidden">
-                    @if (session('status'))
+                <div class="panel-body text-center" style="overflow: hidden">
+                    {{--@if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
-                    @endif
+                @endif--}}
 
-                    <!-- Content -->
-                        <p><b>Titre de la Compaqnie:</b> {{ $titre }}</p>
-                        <p><b>Site Web (URL):</b> {{ $link }}</p>
-                        <p><b>Addresse Email de Compagnie:</b> {{ $email }}</p>
-                        <p><b>Telephone de Compagnie:</b> {{ $phone }}</p>
-                        <p><b>Description de Compagnie:</b> {{ $desc }}</p>
-                        <p><b>Ville:</b> {{ $ville }}</p>
-                        <p><b>Budget:</b> {{ $budget }}</p>
-                        <p><b>Expertise:</b> {{ $expert }}</p>
+                    <p>
+                        Are you sure you want to delete your account?<br>
+                        This action is irreversible.
+                    </p>
 
-
-                        <form action="edit">
-                            <button type="submit" class="btn btn-primary">
-                                Edit
-                            </button>
-                        </form>
-                        <form action="upload" style="margin-top: 10px">
-                            <button type="submit" class="btn btn-primary">
-                                Upload Image
-                            </button>
-                        </form>
-                        <form action="delete" style="margin-top: 10px">
-                            <button type="submit" class="btn btn-primary">
-                                Delete Account
-                            </button>
-                        </form>
+                        <form class="form-horizontal" style="display:inline" method="POST" action="{{ route('postDelete') }}">
+                            {{ csrf_field() }}
+                        {{--<input type="hidden" value="deleted">--}}
+                        <button type="submit" class="btn btn-primary">
+                            Confirm
+                        </button>
+                    </form>
+                        <form action="home" style="display:inline">
+                        <button type="submit" class="btn btn-primary">
+                            Cancel
+                        </button>
+                    </form>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <!--=================================
 footer -->
 
-<footer class="footer page-section-pt black-bg" style="margin-top: 13%">
+<footer class="footer page-section-pt black-bg" style="margin-top: 20%">
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-sm-6 sm-mb-30">
