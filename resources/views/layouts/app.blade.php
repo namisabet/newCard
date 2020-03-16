@@ -52,6 +52,26 @@
             text-decoration: none;
             text-transform: uppercase;
         }
+        :root {
+            --mainColor: #8aa3ff;
+        }
+        a.links2 {
+            background:
+                    linear-gradient(
+                            to bottom, var(--mainColor) 0%,
+                            var(--mainColor) 100%
+                    );
+            background-position: 0 100%;
+            background-repeat: repeat-x;
+            background-size: 4px 4px;
+            color: #000;
+            text-decoration: none;
+            transition: background-size .2s;
+        }
+
+        a.links2:hover {
+            background-size: 4px 50px;
+        }
 
     </style>
 </head>
@@ -84,9 +104,9 @@
 
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li class="top-right links"><a href="{{ route('search') }}">Recherche</a></li>
-                            <li class="top-right links"><a href="{{ route('login') }}">Connexion</a></li>
-                            <li class="top-right links"><a href="{{ route('register') }}">Inscription</a></li>
+                            <li class="top-right links" style="padding-left: 5px"><a class="links2" href="{{ route('search') }}" style="font-size:1vmax;color: black">Recherche</a></li>
+                            <li class="top-right links" style="padding-left: 5px"><a class="links2" href="{{ route('login') }}" style="font-size:1vmax;color: black">Connexion</a></li>
+                            <li class="top-right links" style="padding-left: 5px"><a class="links2" href="{{ route('register') }}" style="font-size:1vmax;color: black">Inscription</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

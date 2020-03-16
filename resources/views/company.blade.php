@@ -178,6 +178,26 @@ else{ //User Images
             overflow:hidden;
 
         }
+        :root {
+            --mainColor: #8aa3ff;
+        }
+        a.links2 {
+            background:
+                    linear-gradient(
+                            to bottom, var(--mainColor) 0%,
+                            var(--mainColor) 100%
+                    );
+            background-position: 0 100%;
+            background-repeat: repeat-x;
+            background-size: 4px 4px;
+            color: #000;
+            text-decoration: none;
+            transition: background-size .2s;
+        }
+
+        a.links2:hover {
+            background-size: 4px 50px;
+        }
     </style>
 
 </head>
@@ -244,12 +264,12 @@ else{ //User Images
 
                                     @if (Route::has('login'))
                                         <div class="top-right links" style="padding-left: 100px">
-                                                 <a href="{{ route('search') }}" style="font-size:1vmax;padding: 5px">Recherche</a>
+                                                 <a class="links2" href="{{ route('search') }}" style="font-size:1vmax;padding: 5px">Recherche</a>
                                             @if (Auth::check())
-                                                <a href="{{ url('/home') }}" style="font-size:1vmax;padding: 5px">Profil</a>
+                                                <a class="links2" href="{{ url('/home') }}" style="font-size:1vmax;padding: 5px">Profil</a>
                                             @else
-                                                <a href="{{ url('/login') }}" style="font-size:1vmax;padding: 5px">Connexion</a>
-                                                <a href="{{ url('/register') }}" style="font-size:1vmax;padding: 5px">Inscription</a>
+                                                <a class="links2" href="{{ url('/login') }}" style="font-size:1vmax;padding: 5px">Connexion</a>
+                                                <a class="links2" href="{{ url('/register') }}" style="font-size:1vmax;padding: 5px">Inscription</a>
                                             @endif
                                         </div>
                                     @endif
