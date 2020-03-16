@@ -92,6 +92,18 @@
                 overflow:hidden;
 
             }
+            @media screen and (min-width: 601px) {
+                div.example {
+                    font-size: 80px;
+                }
+            }
+
+            /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+            @media screen and (max-width: 600px) {
+                div.example {
+                    font-size: 30px;
+                }
+            }
         </style>
 
     </head>
@@ -157,13 +169,13 @@
                                             <div class="menu-bar">
 
                                                 @if (Route::has('login'))
-                                                    <div class="top-right links">
-                                                            <a href="{{ url('/search') }}">Recherche</a>
+                                                    <div class="top-right links" style="padding-left: 100px">
+                                                            <a href="{{ url('/search') }}" style="font-size:1vmax;padding: 5px">Recherche</a>
                                                         @if (Auth::check())
-                                                            <a href="{{ url('/home') }}">Profil</a>
+                                                            <a href="{{ url('/home') }}" style="font-size:1vmax;padding: 5px">Profil</a>
                                                         @else
-                                                            <a href="{{ url('/login') }}">Connexion</a>
-                                                            <a href="{{ url('/register') }}">Inscription</a>
+                                                            <a href="{{ url('/login') }}" style="font-size:1vmax;padding: 5px">Connexion</a>
+                                                            <a href="{{ url('/register') }}" style="font-size:1vmax;padding: 5px">Inscription</a>
                                                         @endif
                                                     </div>
                                                 @endif

@@ -234,22 +234,22 @@ else{ //User Images
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <!-- menu logo -->
-                                <ul class="menu-logo" style="padding:0px">
+                                <ul class="menu-logo" >
                                     <li>
-                                        <a href="/"><img src="img/ez.png" alt="logo" STYLE="height: 80px"> </a>
+                                        <a href="/"><img src="img/ez.png" alt="logo" style="min-height: 40px"> </a>
                                     </li>
                                 </ul>
                                 <!-- menu links -->
                                 <div class="menu-bar">
 
                                     @if (Route::has('login'))
-                                        <div class="top-right links">
-                                                 <a href="{{ route('search') }}">Recherche</a>
+                                        <div class="top-right links" style="padding-left: 100px">
+                                                 <a href="{{ route('search') }}" style="font-size:1vmax;padding: 5px">Recherche</a>
                                             @if (Auth::check())
-                                                <a href="{{ url('/home') }}">Profil</a>
+                                                <a href="{{ url('/home') }}" style="font-size:1vmax;padding: 5px">Profil</a>
                                             @else
-                                                <a href="{{ url('/login') }}">Connexion</a>
-                                                <a href="{{ url('/register') }}">Inscription</a>
+                                                <a href="{{ url('/login') }}" style="font-size:1vmax;padding: 5px">Connexion</a>
+                                                <a href="{{ url('/register') }}" style="font-size:1vmax;padding: 5px">Inscription</a>
                                             @endif
                                         </div>
                                     @endif

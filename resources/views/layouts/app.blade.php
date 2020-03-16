@@ -12,8 +12,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <title>Trouvez une agence Web pour votre prochain projet</title>
 
+    <link rel="stylesheet" href="{{ asset('css/baguetteBox.min.css') }}"/>
 
+    <!-- font -->
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900|Nunito:200,300,400,400i,600,600i,700,700i,800,800i,900">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('img/super.png') }}" />
 
@@ -28,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 
     <!-- marketing -->
-    <link rel="stylesheet" type="text/css" href="css/marketing.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/marketing.css') }}" />
 
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
@@ -80,9 +84,9 @@
 
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('search') }}">Recherche</a></li>
-                            <li><a href="{{ route('login') }}">Connexion</a></li>
-                            <li><a href="{{ route('register') }}">Inscription</a></li>
+                            <li class="top-right links"><a href="{{ route('search') }}">Recherche</a></li>
+                            <li class="top-right links"><a href="{{ route('login') }}">Connexion</a></li>
+                            <li class="top-right links"><a href="{{ route('register') }}">Inscription</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
