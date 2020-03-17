@@ -43,6 +43,96 @@ class CompanyController extends Controller
         //Put expertise in session
         $_SESSION["desc1"] = $expert;
 
+
+        //Initialize
+        $splitImages = [];
+        $string="UndefinedString";
+        $string1="UndefinedString1";
+        $buffer="UndefinedBuffer";
+        $buffer1="UndefinedBuffer";
+        $array = [];
+        $exist = true;
+        $half=0;
+        $half1=0;
+        $user=false;
+
+        //Ultra REGEX Expertise, Cookie set in CompanyController
+        if(!isset($_SESSION["desc1"])) {
+            echo "Session named '" . "desc1" . "' is not set!";
+            header("Refresh:0");
+
+        } else {
+            // Remove line break before and after :
+            $buffer1 = str_replace(array("Expertises"), '', $_SESSION["desc1"]);
+
+
+            // Remove line break before and after :
+            $buffer = str_replace(array("\r : \r", "\n : \n"), ': ', $buffer1);
+
+            //Remove Extra Line Breaks
+            $string1 = preg_replace('/\s*$^\s*/m', "\n", $buffer);
+
+            //Remove Bold
+            $string = str_replace(array(" "), ' ', $string1);
+
+            //echo preg_replace('/[ \t]+/', ' ', $string);
+
+        }
+
+
+        //Get specific Row - Gallery
+        $companyGallery = DB::table('gallery')->where('companyId',$var)->first();
+        if ($companyGallery===null){
+            //Get Image Blob
+            $companyBlob = "";
+
+            //convert Blob to String for REGEX
+            $companyImageString = "";
+        }
+        else if($var < 909){
+            //Get Image Blob
+            $companyBlob = $companyGallery->image;
+
+            //convert Blob to String for REGEX
+            $companyImageString = (string)$companyBlob;
+
+            //Split Images
+            $splitImages = explode('<br>',$companyImageString);
+
+            //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
+            $half=((count($splitImages)-1)/2)+1;
+
+            //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
+            $half1=count($splitImages)-2;
+
+        }
+        else{ //User Images
+
+            $companyGallery1 = DB::table('gallery')->where('companyId',$var)->get();
+            /*
+            $x=0;
+
+            foreach($companyGallery1 as $image){
+                $companyBlob = $image->image;
+
+                //Array
+                $array[$x] = $companyBlob;
+                $x++;
+            }
+    */
+            $splitImages=$array;
+            $half=0;
+            $half1=4;
+            $user=true;
+
+        }
+
+        $_SESSION["user"] = $user;
+        $_SESSION["split"] = $splitImages;
+        $_SESSION["half"] = $half;
+        $_SESSION["half1"] = $half1;
+        $_SESSION["string"] = $string;
+
         //Return View
         return view('company')->with('titre',$titre)
             ->with('link',$link)

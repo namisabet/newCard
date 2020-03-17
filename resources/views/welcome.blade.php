@@ -610,6 +610,122 @@
 
                 <!--=================================
                  team -->
+                <!--=================================
+                 blog -->
+
+                <section class="masonry-main white-bg page-section-ptb">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="masonry columns-3">
+                                    <div class="grid-sizer"></div>
+                                    <div class="masonry-item" >
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Business</a></span>
+                                                <h4> <a href="blog-single.html">Remind yourself of someone</a></h4>
+                                                <p class="mb-0">Success isn’t really that difficult. There is a significant portion of the population here in North America.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Business</a></span>
+                                                <h4> <a href="blog-single.html">Most people believe that</a></h4>
+                                                <p class="mb-0">That actually want and need success to be hard! Why</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Business</a></span>
+                                                <h4> <a href="blog-single.html">Success is something of which</a></h4>
+                                                <p class="mb-0">We also know those epic stories.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Style</a></span>
+                                                <h4> <a href="blog-single.html"> Does your life lack</a></h4>
+                                                <p class="mb-0">I truly believe Augustine’s words are true.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Lookbook</a></span>
+                                                <h4> <a href="blog-single.html"> Supercharge your</a></h4>
+                                                <p class="mb-0">So they then have a built-in excuse when things don’t go their way! Pretty sad situation, to say the least.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Trend</a></span>
+                                                <h4> <a href="blog-single.html"> Helen keller a </a></h4>
+                                                <p class="mb-0">We also know those epic stories.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Fashion</a></span>
+                                                <h4> <a href="blog-single.html">The other virtues</a></h4>
+                                                <p class="mb-0">We also know those epic stories.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Mackup</a></span>
+                                                <h4> <a href="blog-single.html"> You will begin</a></h4>
+                                                <p class="mb-0">We also know those epic stories.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="masonry-item">
+                                        <div class="blog-box blog-2 border">
+                                            <img class="img-fluid" src="img/ez.png" alt="">
+                                            <div class="blog-info  p-3">
+                                                <span class="post-category"><a class="mb-10" href="#">Business</a></span>
+                                                <h4> <a href="blog-single.html">Step out on</a></h4>
+                                                <p class="mb-0">We also know those epic stories.</p>
+                                                <span><i class="fa fa-calendar-check-o"></i> 21 April 2016 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--=================================
+                 blog -->
 
                 <!--=================================
                 footer -->
@@ -673,16 +789,16 @@
              jquery -->
 
             <!-- jquery -->
-            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 
             <!-- plugins-jquery -->
-            <script src="js/plugins-jquery.js"></script>
+            <script src="{{ asset('js/plugins-jquery.js') }}"></script>
 
             <!-- plugin_path -->
             <script>var plugin_path = 'js/';</script>
 
             <!-- custom -->
-            <script src="js/custom.js"></script>
+            <script src="{{ asset('js/custom.js') }}"></script>
 
     </body>
 </html>
