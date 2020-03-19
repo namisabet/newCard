@@ -1,8 +1,3 @@
-<?php
-
-
-
-?>
 
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -230,208 +225,44 @@
 
                             <!-- Card Dynamic -->
                             <?php
+                                    //Paginate
+                                    $users = DB::table('informations')->paginate(9);
 
-                                    //Get Database
-                                    $companies = DB::table('informations')->get();
-
-                                    //Count number of total rows
-                                    $total = count($companies);
-
-                                    //Total pages
-                                    $totalPages= ceil($total/10);
-
-                                    //Initialize Loop
+                                    //Initialize
                                     $i=0;
-                                    $page=0;
-                                    $pageNo=1;
-                                    $splitImages = [];
-                                    $array = [];
-                                    $exist = true;
-                                    $half="";
-                                    $half1=0;
-
-                                    //Check Page
-                                    if(isset($_GET['page'])){
-                                        $pageNo = $_GET['page'];
-                                    }
-
-                                    //Get right company ids depending on page number
-                                    if ($pageNo == 1){
-                                        $i=0;
-                                    }
-                                    else{
-                                        $i=(($pageNo-1)*10);
-                                    }
-
-
-                                    //Dynamic Card Views
-                                    for ($y=0;$y<10;$y++){
-
-                                        //Next id
-                                        $i++;
-
-                                        //Get specific Row - Informations
-                                        $companyinfo = DB::table('informations')->where('id',$i)->first();
-                                        if ($companyinfo===null){
-                                                    continue;
-                                        }
-                                        else{
-                                            $exist=true;
-                                        }
-
-                                        //Get specific Row - Gallery
-                                        $companyGallery = DB::table('gallery')->where('companyId',$i)->first();
-                                        if ($companyGallery===null){
-                                            $exist=false;
-                                        }
-                                        else{
-                                            $exist=true;
-                                        }
-
-
-                                        //REGEX Time!
-
-                                        //Check if data is from Web Crawler or User
-                                        //Web Crawler Images
-                                        if ($i < 909 && $exist==true) {
-                                            //Get Image Blob
-                                            $companyBlob = $companyGallery->image;
-
-                                            //convert Blob to String for REGEX
-                                            $companyImageString = (string)$companyBlob;
-
-                                            //Split Images
-                                            $splitImages = explode('<br>',$companyImageString);
-
-                                            //Get image du milleu, la première moitier est du garbage (Pour data du web crawler)
-                                            $half=((count($splitImages)-1)/2)+1;
-
-                                            //Get avant dernier image, la dernière image est du garbage (Pour data du web crawler)
-                                            $half1=count($splitImages)-2;
-                                        }
-                                        else{ //User Images
-
-                                            $companyinfo = DB::table('informations')->where('id',$i)->first();
-                                            if ($companyinfo->titre==null){
-                                                continue;
-                                            }
-                                            else{
-                                                $exist=true;
-                                            }
-
-                                            if ($companyGallery===null || $exist==false){
-                                                $exist=false;
-                                            }
-                                            else
-                                                {
-
-                                                    $exist=true;
-                                            $companyGallery1 = DB::table('gallery')->where('companyId',$i)->get();
-                                            $x=0;
-
-                                            foreach($companyGallery1 as $image){
-                                                $companyBlob = $image->image;
-
-                                                //Array
-                                                $array[$x] = $companyBlob;
-                                                $x++;
-                                                }
-
-                                            $splitImages=$array;
-                                            $half1=0;
-                                            $half=1;
-
-                                            }
-
-
-                                        }
-
-                                        //Console Debug
-                                        echo '<script>';
-                                        echo 'console.log('. json_encode( $i ) .')';
-                                        echo '</script>';
-
-                                    try{
-                                        if($exist==true){// Print Card
-
-                                            echo '<div class="col-lg-6 col-md-6 mb-30">';
-                                            echo '<div class="team team-list gray-mb">';
-                                            echo '<div class="team-photo">';
-                                            echo '<a href="company?id='.$i.'">';
-                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half1].'" alt="" >';
-                                            echo '</a>';
-                                            echo '</div>';
-                                            echo '<div class="team-description">';
-                                            echo '<div class="team-info">';
-                                            echo '<a href="company?id='.$i.'">';
-                                            echo '<img class="img-fluid mx-auto" src="'.$splitImages[$half].'" alt="" style="max-height:50px" >';
-                                            echo '</a><br>';
-                                            echo '<span>'.$companyinfo->titre.'</span>';
-                                            echo '</div>';
-                                            echo '<div class="team-contact">';
-                                            echo '<span class="call"> '.$companyinfo->ville.' </span>';
-                                            echo '<span class="email">'.$companyinfo->budget.'</span>';
-                                            echo '<p  class="desc" style="font-size: 12px">'.$companyinfo->description.'</p>';
-                                            echo '</div>';
-                                            echo '</div>';
-                                            echo '</div>';
-                                            echo '</div>';
-
-
-                                        }
-
-                                        }catch(Exception $e){}
-                                    }
-
-                                /* Dynamic Card Template
-                                echo '<div class="col-lg-6 col-md-6 mb-30">';
-                                echo '<div class="team team-list">';
-                                echo '<div class="team-photo">';
-                                echo '<a href="company?id=1">';
-                                echo '<img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">';
-                                echo '</a>';
-                                echo '</div>';
-                                echo '<div class="team-description">';
-                                echo '<div class="team-info">';
-                                echo '<h5><a href="company?id=1"> Company Logo A</a></h5>';
-                                echo '<span>Company Name A</span>';
-                                echo '</div>';
-                                echo '<div class="team-contact">';
-                                echo '<span class="call"> City </span>';
-                                echo '<span class="email">Budget</span>';
-                                echo '<p  class="desc">Description, description, description, description, description</p>';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '</div>';
-                                */
-                                //echo '';
                             ?>
-                            <!-- Card HTML -->
-                            <!-- Card Start -->
-                            <!--
-                            <div class="col-lg-6 col-md-6 mb-30">
-                                <div class="team team-list">
-                                    <div class="team-photo">
-                                        <a href="company?id=1">
-                                            <img class="img-fluid mx-auto" src="template/images/team/01.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="team-description">
-                                        <div class="team-info">
-                                            <h5><a href="company?id=1"> Company Logo A</a></h5>
-                                            <span>Company Name A</span>
+
+                                    @foreach ($users as $company)
+
+                             <div class="col-lg-6 col-md-6 mb-30">
+                                    <div class="team team-list gray-mb">
+                                        <div class="team-photo">
+                                            <a href="company?id={{$company->id}}">
+                                                <img class="img-fluid mx-auto" src="companyImage/{{$company->id}}_imagePrincipal.png" onerror="this.onerror=null; this.src='img/ez.png'" alt="" >
+                                            </a>
                                         </div>
-                                        <div class="team-contact">
-                                            <span class="call"> City </span>
-                                            <span class="email">Budget</span>
-                                            <p  class="desc">Description, description, description, description, description</p>
+                                        <div class="team-description">
+                                            <div class="team-info">
+                                                <a href="company?id={{$company->id}}">
+                                                    <img class="img-fluid mx-auto" src="companyImage/{{$company->id}}imageTitre.png" onerror="this.onerror=null; this.src='ez.png'" alt="" style="max-height:50px" >
+                                                    </a><br>
+                                                <span>{{$company->titre}}</span>
+                                                </div>
+                                            <div class="team-contact">
+                                                <span class="call"> {{$company->ville}} </span>
+                                                <span class="email">{{$company->budget}}</span>
+                                                <p  class="desc" style="font-size: 12px">{{$company->description}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            -->
-                            <!-- Card End -->
+                             </div>
+
+                                       <!--Console Debug-->
+                                       <script>
+                                       console.log({{json_encode( $company->id )}})
+                                       </script>
+
+                                    @endforeach
 
                         </div>
                         <div class="row">
@@ -439,166 +270,46 @@
                                 <nav aria-label="Page navigation example ">
                                     <ul class="pagination justify-content-center ">
 
-                                        <?php
-                                                //---------------Dynamic Page Numbers-------------
+                                        <!-- Dynamic Page Numbers -->
 
-                                                $wrongPage=false;
-                                                $next=$pageNo+1;
-                                                //Last page
-                                                 $lastPage=$totalPages;
+                                        <!-- Previous -->
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{$users->previousPageUrl()}}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                        </li>
 
-                                                //Page == 1
-                                                if($pageNo==1){
-                                                    $class="";
-                                                    $previous=$pageNo-1;
+                                        <!-- First Page -->
+                                        <li class="page-item">
+                                            <a class="page-link" href="/?page=1" aria-label="Previous">
+                                                <span aria-hidden="true">...</span>
+                                                <span class="sr-only">First</span>
+                                            </a>
+                                        </li>
 
+                                        <!-- Page Numbers -->
+                                        <li class="page-item"><a class="page-link" href="{{$users->previousPageUrl()}}">{{$users->currentPage()-1}}</a></li>
+                                        <li class="page-item active"><a class="page-link" href="/?page={{$users->currentPage()}}">{{$users->currentPage()}}</a></li>
+                                        <li class="page-item"><a class="page-link" href="{{$users->nextPageUrl()}}">{{$users->currentPage()+1}}</a></li>
 
-                                                    for($i=$pageNo;$i<$pageNo+3;$i++){
+                                        <!-- Last Page -->
+                                        <li class="page-item">
+                                            <a class="page-link" href="/?page={{$users->lastPage()}}" aria-label="Next">
+                                                <span aria-hidden="true">...</span>
+                                                <span class="sr-only">Last</span>
+                                            </a>
+                                        </li>
 
-                                                        if($pageNo==$i){
-                                                            $class='active';
-                                                        }
-                                                        else{
-                                                            $class='';
-                                                        }
+                                        <!-- Next -->
+                                        <li class="page-item">
+                                            <a class="page-link" href="{{$users->nextPageUrl()}}" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </li>
 
-                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
-                                                    }
-                                                }
-                                                else if($pageNo==$lastPage){
-
-                                                    $previous=$pageNo-1;
-                                                    $class="";
-                                                    //Previous page
-                                                    echo'<li class="page-item ">';
-                                                    echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
-                                                    echo'<span aria-hidden="true">&laquo;</span>';
-                                                    echo'<span class="sr-only">Previous</span>';
-                                                    echo'</a>';
-                                                    echo'</li>';
-
-                                                    //First Page
-                                                    echo '<li class="page-item">';
-                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
-                                                    echo '<span aria-hidden="true">...</span>';
-                                                    echo '<span class="sr-only">Last</span>';
-                                                    echo '</a>';
-                                                    echo '</li>';
-
-                                                    for($i=$pageNo-2;$i<$pageNo+1;$i++){
-
-                                                        if($pageNo==$i){
-                                                            $class='active';
-                                                        }
-                                                        else{
-                                                            $class='';
-                                                        }
-
-                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
-                                                    }
-                                                }
-                                                else if ($pageNo==$lastPage-1){
-                                                    $previous=$pageNo-1;
-                                                    $class="";
-                                                    //Previous page
-                                                    echo'<li class="page-item">';
-                                                    echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
-                                                    echo'<span aria-hidden="true">&laquo;</span>';
-                                                    echo'<span class="sr-only">Previous</span>';
-                                                    echo'</a>';
-                                                    echo'</li>';
-
-                                                    //First Page
-                                                    echo '<li class="page-item">';
-                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
-                                                    echo '<span aria-hidden="true">...</span>';
-                                                    echo '<span class="sr-only">Last</span>';
-                                                    echo '</a>';
-                                                    echo '</li>';
-
-                                                    for($i=$pageNo-1;$i<$pageNo+2;$i++){
-
-                                                        if($pageNo==$i){
-                                                            $class='active';
-                                                        }
-                                                        else{
-                                                            $class='';
-                                                        }
-
-                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
-                                                    }
-                                                }
-                                                else if($pageNo>$lastPage || $pageNo < 1){
-                                                    $wrongPage=true;
-                                                    //First Page
-                                                    echo '<li class="page-item" style="padding-bottom: 5%">';
-                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
-                                                    echo '<span aria-hidden="true">Back to First Page</span>';
-                                                    echo '<span class="sr-only">First</span>';
-                                                    echo '</a>';
-                                                    echo '</li>';
-                                                }
-                                                else{ //Page > 1
-                                                    $previous=$pageNo-1;
-                                                    $class="";
-                                                    //Previous page
-                                                    echo'<li class="page-item">';
-                                                    echo'<a class="page-link" href="/?page='.$previous.'" aria-label="Previous">';
-                                                    echo'<span aria-hidden="true">&laquo;</span>';
-                                                    echo'<span class="sr-only">Previous</span>';
-                                                    echo'</a>';
-                                                    echo'</li>';
-
-                                                    //First Page
-                                                    echo '<li class="page-item">';
-                                                    echo '<a class="page-link" href="/?page=1" aria-label="Next">';
-                                                    echo '<span aria-hidden="true">...</span>';
-                                                    echo '<span class="sr-only">Last</span>';
-                                                    echo '</a>';
-                                                    echo '</li>';
-
-                                                    for($i=$pageNo-1;$i<$pageNo+3;$i++){
-
-                                                        if($pageNo==$i){
-                                                            $class='active';
-                                                        }
-                                                        else{
-                                                            $class='';
-                                                        }
-
-                                                        echo '<li class="page-item '.$class.'"><a class="page-link" href="/?page='.$i.'">'.$i.'</a></li>';
-                                                    }
-
-                                                }
-
-                                        // Next page and Last Page
-                                        if ($pageNo==$lastPage || $wrongPage==true){
-                                                    //Don't display anything
-                                        }
-                                        else{
-                                            //Last page;
-
-                                            echo '<li class="page-item">';
-                                            echo '<a class="page-link" href="/?page='.$lastPage.'" aria-label="Next">';
-                                            echo '<span aria-hidden="true">...</span>';
-                                            echo '<span class="sr-only">Last</span>';
-                                            echo '</a>';
-                                            echo '</li>';
-
-                                            //Next Page
-                                            echo '<li class="page-item">';
-                                            echo '<a class="page-link" href="/?page='.$next.'" aria-label="Next">';
-                                            echo '<span aria-hidden="true">&raquo;</span>';
-                                            echo '<span class="sr-only">Next</span>';
-                                            echo '</a>';echo '</li>';
-
-                                        }
-
-                                        //-------End of Dynamic Page Numbers-------------
-                                        ?>
-
-                                        <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
-                                        <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+                                        <!-- End of Dynamic Page Numbers -->
 
                                     </ul>
                                 </nav>
@@ -723,6 +434,7 @@
                         </div>
                     </div>
                 </section>
+            {{ $users->links() }}
 
                 <!--=================================
                  blog -->
